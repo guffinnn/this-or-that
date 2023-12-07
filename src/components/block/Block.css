@@ -1,0 +1,121 @@
+.block__frame {
+    display: flex;
+    width: 320px;
+    padding: 30px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 20px;
+    background: #FFF;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    flex: 1 0 0;
+}
+
+.status {
+    display: flex;
+    padding: 5px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 20px;
+    background: #5BD57A;
+}
+
+.status__text {
+    color: #FFF;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.14px;
+}
+
+.main__of__content {
+    width: 320px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.info__frame {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    align-self: stretch;
+    justify-content: center;
+}
+
+.heading__info {
+    align-self: stretch;
+    color: #000;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.24px;
+}
+
+.text__info {
+    color: rgba(0, 0, 0, 0.60);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.14px;
+}
+
+.image__block {
+    border-radius: 20px;
+    border: 2px solid #E7E7E7;
+    background: lightgray 50% / cover no-repeat;
+}
+
+@media(max-width: 1200px) {
+    .block__frame {
+        width: 410px;
+    }
+
+    .main__of__content {
+        width: 410px;
+    }
+}
+
+@media(max-width: 960px) {
+    .block__frame {
+        width: 290px;
+    }
+
+    .main__of__content {
+        width: 290px;
+    }
+}
+
+@media(max-width: 720px) {
+    .block__frame {
+        width: 420px;
+    }
+
+    .main__of__content {
+        width: 420px;
+    }
+}
+
+@media(max-width: 480px) {
+    .block__frame {
+        width: 320px;
+    }
+
+    .main__of__content {
+        width: 320px;
+    }
+}
