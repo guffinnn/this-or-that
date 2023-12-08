@@ -7,6 +7,7 @@
     gap: 10px;
     border-radius: 20px;
     background: #FFF;
+    cursor: pointer;
 }
 
 .content {
@@ -117,5 +118,23 @@
 
     .main__of__content {
         width: 320px;
+    }
+}
+
+@media(max-width: 420px) {
+    .block__frame {
+        width: 230px;
+    }
+
+    .main__of__content {
+        width: 230px;
+    }
+
+    .heading__info {
+        font-size: 18px;
+    }
+
+    .text__info {
+        font-size: 12px;
     }
 }

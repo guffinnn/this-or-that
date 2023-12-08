@@ -6,6 +6,7 @@
     gap: 10px;
     border-radius: 20px;
     background: #FFF;
+    cursor: pointer;
 }
 
 @media(max-width: 720px) {

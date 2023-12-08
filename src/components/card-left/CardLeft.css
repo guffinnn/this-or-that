@@ -1,0 +1,38 @@
+.card {
+    position: relative;
+    width: 346px;
+    height: 525px;
+}
+
+#left:hover {
+    /*filter: blur(5px);*/
+    margin: 0 100px;
+    transform: rotate(-15deg);
+
+    .heart__frame {
+        visibility: visible;
+    }
+}
+
+.card__image {
+    width: 346px;
+    height: 525px;
+    flex-shrink: 0;
+    border-radius: 20px;
+}
+
+.heart__frame {
+    display: flex;
+    position: absolute;
+    top: 206px;
+    left: 113px;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    z-index: 3;
+}
+
+.heart__image {
+    width: 100px;
+    height: 90px;
+}
