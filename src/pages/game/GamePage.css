@@ -12,18 +12,24 @@
     display: inline-flex;
     flex-direction: column;
     align-items: center;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
 }
 
 .navigation__frame {
     position: fixed;
     top: 30px;
     right: 80px;
+    z-index: 10;
 }
 
 .main__frame {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
+    flex-wrap: wrap;
+    align-content: center;
 }
 
 .heading__frame {
@@ -58,6 +64,9 @@ h1 {
     justify-content: center;
     align-items: center;
     gap: 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
 }
 
 @media(max-width: 1200px) {
@@ -71,17 +80,135 @@ h1 {
 }
 
 @media(max-width: 960px) {
+    .container__fluid {
+        width: 720px;
+    }
 
+    .cards__frame {
+        width: 720px;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    .text {
+        font-size: 15px;
+    }
 }
 
 @media(max-width: 720px) {
+    .container__fluid {
+        width: 480px;
+    }
 
+    .cards__frame {
+        width: 480px;
+    }
+
+    h1 {
+        font-size: 36px;
+    }
+
+    .text {
+        font-size: 14px;
+    }
+
+    .navigation__frame {
+        right: 70px;
+    }
 }
 
 @media(max-width: 480px) {
+    .container__fluid {
+        width: 380px;
+    }
 
+    .cards__frame {
+        width: 380px;
+    }
+
+    .header {
+        width: 360px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-content: center;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        padding-top: 20px;
+    }
+
+    .navigation__frame {
+        position: relative;
+        top: 0;
+        right: 0;
+    }
+
+    .heading__frame {
+        padding-top: 0;
+        align-items: flex-start;
+    }
+
+    .cards__frame {
+        padding: 30px 0;
+    }
+}
+
+@media(max-width: 420px) {
+    .container__fluid {
+        width: 380px;
+        gap: 20px;
+    }
+
+    .main__frame {
+        width: 380px;
+        gap: 20px;
+    }
+
+    .header {
+        width: 290px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-content: center;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        padding-top: 20px;
+    }
+
+    .navigation__frame {
+        position: relative;
+        top: 0;
+        right: 0;
+    }
+
+    .heading__frame {
+        padding-top: 0;
+        align-items: flex-start;
+    }
+
+    .cards__frame {
+        padding: 30px 0;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    .text {
+        font-size: 14px;
+    }
 }
 
 @media(max-width: 380px) {
+    .container__fluid {
+        width: 290px;
+    }
 
+    .cards__frame {
+        width: 290px;
+    }
 }

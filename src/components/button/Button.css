@@ -7,6 +7,7 @@
     border-radius: 20px;
     background: #FFF;
     cursor: pointer;
+    z-index: 10;
 }
 
 @media(max-width: 720px) {
