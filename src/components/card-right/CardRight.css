@@ -5,6 +5,7 @@
 }
 
 #right:hover {
+    transition: transform 0.3s ease;
     transform: rotate(15deg);
 
     .heart__frame {

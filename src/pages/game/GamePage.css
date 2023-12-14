@@ -1,4 +1,4 @@
-.container {
+.container__game {
     padding: 30px 0;
     display: flex;
     justify-content: center;
@@ -7,7 +7,7 @@
     flex-wrap: wrap;
 }
 
-.container__fluid {
+.container__fluid__game {
     width: 1200px;
     display: inline-flex;
     flex-direction: column;
@@ -17,14 +17,14 @@
     justify-content: center;
 }
 
-.navigation__frame {
+.navigation__frame__game {
     position: fixed;
     top: 30px;
     right: 80px;
     z-index: 10;
 }
 
-.main__frame {
+.main__frame__game {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
@@ -32,7 +32,7 @@
     align-content: center;
 }
 
-.heading__frame {
+.heading__frame__game {
     display: flex;
     padding-top: 50px;
     flex-direction: column;
@@ -41,7 +41,7 @@
     gap: 5px;
 }
 
-h1 {
+.head__game {
     color: #998175;
     font-size: 48px;
     font-style: normal;
@@ -67,10 +67,15 @@ h1 {
     flex-direction: row;
     flex-wrap: wrap;
     align-content: center;
+    transition: gap 0.3s ease;
+}
+
+.cards__frame:hover {
+    gap: 70px;
 }
 
 @media(max-width: 1200px) {
-    .container__fluid {
+    .container__fluid__game {
         width: 960px;
     }
 
@@ -80,7 +85,7 @@ h1 {
 }
 
 @media(max-width: 960px) {
-    .container__fluid {
+    .container__fluid__game {
         width: 720px;
     }
 
@@ -88,7 +93,7 @@ h1 {
         width: 720px;
     }
 
-    h1 {
+    .head__game {
         font-size: 40px;
     }
 
@@ -98,7 +103,7 @@ h1 {
 }
 
 @media(max-width: 720px) {
-    .container__fluid {
+    .container__fluid__game {
         width: 480px;
     }
 
@@ -106,7 +111,7 @@ h1 {
         width: 480px;
     }
 
-    h1 {
+    .head__game {
         font-size: 36px;
     }
 
@@ -114,13 +119,17 @@ h1 {
         font-size: 14px;
     }
 
-    .navigation__frame {
+    .navigation__frame__game {
         right: 70px;
+    }
+
+    .cards__frame:hover {
+        gap: 30px;
     }
 }
 
 @media(max-width: 480px) {
-    .container__fluid {
+    .container__fluid__game {
         width: 380px;
     }
 
@@ -140,13 +149,13 @@ h1 {
         padding-top: 20px;
     }
 
-    .navigation__frame {
+    .navigation__frame__game {
         position: relative;
         top: 0;
         right: 0;
     }
 
-    .heading__frame {
+    .heading__frame__game {
         padding-top: 0;
         align-items: flex-start;
     }
@@ -154,15 +163,19 @@ h1 {
     .cards__frame {
         padding: 30px 0;
     }
+
+    .cards__frame:hover {
+        gap: 30px;
+    }
 }
 
 @media(max-width: 420px) {
-    .container__fluid {
+    .container__fluid__game {
         width: 380px;
         gap: 20px;
     }
 
-    .main__frame {
+    .main__frame__game {
         width: 380px;
         gap: 20px;
     }
@@ -179,13 +192,13 @@ h1 {
         padding-top: 20px;
     }
 
-    .navigation__frame {
+    .navigation__frame__game {
         position: relative;
         top: 0;
         right: 0;
     }
 
-    .heading__frame {
+    .heading__frame__game {
         padding-top: 0;
         align-items: flex-start;
     }
@@ -194,21 +207,29 @@ h1 {
         padding: 30px 0;
     }
 
-    h1 {
+    .head__game {
         font-size: 32px;
     }
 
     .text {
         font-size: 14px;
     }
+
+    .cards__frame:hover {
+        gap: 30px;
+    }
 }
 
 @media(max-width: 380px) {
-    .container__fluid {
+    .container__fluid__game {
         width: 290px;
     }
 
     .cards__frame {
         width: 290px;
+    }
+
+    .cards__frame:hover {
+        gap: 30px;
     }
 }
