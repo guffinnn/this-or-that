@@ -1,14 +1,22 @@
 import { initializeApp } from 'firebase/app';
+import { getAuth } from 'firebase/auth';
+import { getFirestore } from 'firebase/firestore';
+import { getDatabase } from 'firebase/database';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCJOo5a41jAnRznkr9w_baBGtS5VS9jWLI",
-    authDomain: "this-or-that-e2ae5.firebaseapp.com",
-    databaseURL: "https://this-or-that-e2ae5-default-rtdb.firebaseio.com",
-    projectId: "this-or-that-e2ae5",
-    storageBucket: "this-or-that-e2ae5.appspot.com",
-    messagingSenderId: "966143518475",
-    appId: "1:966143518475:web:4920638907b67701dfa40e",
-    measurementId: "G-18D8E2NTQW"
+    apiKey: "AIzaSyBWnjjbC9rOyRqsKH-pqAiS-SQsjL2PTvE",
+    authDomain: "this-or-that-game.firebaseapp.com",
+    projectId: "this-or-that-game",
+    storageBucket: "this-or-that-game.appspot.com",
+    messagingSenderId: "205080802205",
+    appId: "1:205080802205:web:c3ab652da251acba79b574",
+    measurementId: "G-NQ9NMYRLZ0"
 };
 
-initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+const db = getFirestore(app);
+const database = getDatabase(app);
+
+export { db };
