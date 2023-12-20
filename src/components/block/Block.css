@@ -122,6 +122,18 @@
 }
 
 @media(max-width: 420px) {
+    .image__block {
+        width: 75px;
+    }
+
+    .status__text {
+        font-size: 10px;
+    }
+
+    .status {
+        padding: 5px 14px;
+    }
+
     .block__frame {
         width: 230px;
     }

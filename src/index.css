@@ -8,10 +8,20 @@
     font-family: "Montserrat", sans-serif;
     text-decoration: none;
     outline: none;
-    /*box-sizing: border-box;*/
 }
 
-body {
+body, html {
     overflow-x: hidden;
     background: #F5F5F5;
+    /* Delete black region on Safari while scrolling */
+    overscroll-behavior: none;
+    margin-bottom: -10px;
+    /* Fixed a bug, while scrolling - black region on bottom of page */
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: -70px;
+    padding-bottom: 70px;
+    transform: translateY(70px);
 }

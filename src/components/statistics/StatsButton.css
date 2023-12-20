@@ -7,11 +7,12 @@
 
 .stats__button__frame {
     display: flex;
-    padding: 20px;
+    padding: 23px;
     align-items: flex-start;
     gap: 10px;
     border-radius: 20px;
     background: #FFF;
+    cursor: pointer;
 }
 
 .statistics__frame {
@@ -44,4 +45,19 @@
     justify-content: center;
     align-items: center;
     gap: 30px;
+}
+
+@media(max-width: 720px) {
+    .statistics {
+        gap: 10px;
+    }
+
+    .stats__button__frame {
+        padding: 15px;
+        border-radius: 15px;
+    }
+
+    .svg {
+        width: 18px;
+    }
 }
