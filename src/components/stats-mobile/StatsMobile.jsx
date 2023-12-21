@@ -1,5 +1,8 @@
+import React from "react";
 import './StatsMobile.css';
+import { MONKEYS } from "../index";
 import LeaderCard from "../favorite-card/LeaderCard";
+
 
 function StatsMobile() {
     return (
@@ -8,11 +11,11 @@ function StatsMobile() {
                 <h3 className="heading">Таблица лидеров</h3>
             </div>
             <div className="stats__mainframe">
-                <LeaderCard index="1" name="Банановый герой" points={10000} />
-                <LeaderCard index="2" name="Пушистый шалун" points={5700} />
-                <LeaderCard index="3" name="Кокосовый бешенец" points={4300} />
-                <LeaderCard index="4" name="Веселая хвостатая" points={2700} />
-                <LeaderCard index="5" name="Смешной кулик" points={2000} />
+                <LeaderCard {...MONKEYS[0]} />
+                <LeaderCard {...MONKEYS[1]} />
+                <LeaderCard {...MONKEYS[2]} />
+                <LeaderCard {...MONKEYS[3]} />
+                <LeaderCard {...MONKEYS[4]} />
             </div>
         </div>
     );
