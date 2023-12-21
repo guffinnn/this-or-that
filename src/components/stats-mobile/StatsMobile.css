@@ -1,0 +1,10 @@
+#mobile {
+    display: none;
+    margin: 0 0 20px 0;
+}
+
+@media(max-width: 720px) {
+    #mobile {
+        display: flex;
+    }
+}

@@ -129,8 +129,12 @@
         gap: 10px;
     }
 
+    .cards__frame {
+        gap: 20px;
+    }
+
     .cards__frame:hover {
-        gap: 30px;
+        gap: 20px;
     }
 }
 
@@ -168,10 +172,6 @@
 
     .cards__frame {
         padding: 30px 0;
-    }
-
-    .cards__frame:hover {
-        gap: 30px;
     }
 }
 
@@ -220,10 +220,6 @@
     .text {
         font-size: 14px;
     }
-
-    .cards__frame:hover {
-        gap: 30px;
-    }
 }
 
 @media(max-width: 380px) {
@@ -233,9 +229,5 @@
 
     .cards__frame {
         width: 290px;
-    }
-
-    .cards__frame:hover {
-        gap: 30px;
     }
 }

@@ -7,6 +7,7 @@ import Button from '../../components/button/Button';
 import CardLeft from '../../components/card-left/CardLeft';
 import CardRight from '../../components/card-right/CardRight';
 import StatsButton from "../../components/statistics/StatsButton";
+import StatsMobile from "../../components/stats-mobile/StatsMobile";
 
 function GamePage() {
     const [monkeys, setMonkeys] = useState([]);
@@ -45,6 +46,7 @@ function GamePage() {
                         <CardRight />
                     </div>
                 </div>
+                <StatsMobile />
             </div>
         </div>
     );

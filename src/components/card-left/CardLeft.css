@@ -97,17 +97,16 @@
 
 @media(max-width: 380px) {
     #left {
-        width: 230px;
+        width: 100%;
         height: 230px;
     }
 
     .card__image {
-        width: 230px;
+        width: 100%;
         height: 230px;
     }
 
     .heart__frame {
-        top: 90px;
-        left: 90px;
+        margin: auto;
     }
 }
