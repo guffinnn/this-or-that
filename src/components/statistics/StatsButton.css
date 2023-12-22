@@ -61,6 +61,12 @@
     gap: 30px;
 }
 
+@media(max-width: 1200px) {
+    .statistics {
+        display: none;
+    }
+}
+
 @media(max-width: 960px) {
     .stats__button__frame {
         padding: 15px;

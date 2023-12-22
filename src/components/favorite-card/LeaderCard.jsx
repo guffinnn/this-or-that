@@ -1,3 +1,4 @@
+import React from "react";
 import './LeaderCard.css';
 import * as Img from '../index';
 
@@ -6,7 +7,7 @@ function LeaderCard({card_PK, name, points}) {
         <div className="leader__card__frame">
             <p className="cards__number">{card_PK}</p>
             <div className="card__image__leaderboard">
-                <img className="leader__image" alt="Monkey" src={Img[`img${card_PK}`]} />
+                <img className={`leader__image number__${card_PK}`} alt="Monkey" src={Img[`img${card_PK}`]} />
             </div>
             <div className="card__info__frame">
                 <p className="cards__name">{name}</p>

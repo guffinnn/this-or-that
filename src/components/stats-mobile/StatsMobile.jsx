@@ -3,7 +3,6 @@ import './StatsMobile.css';
 import { MONKEYS } from "../index";
 import LeaderCard from "../favorite-card/LeaderCard";
 
-
 function StatsMobile() {
     return (
         <div className="statistics__frame" id="mobile">

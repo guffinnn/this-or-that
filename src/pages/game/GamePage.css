@@ -35,6 +35,7 @@
     align-items: center;
     flex-wrap: wrap;
     align-content: center;
+    margin-bottom: 65px;
 }
 
 .heading__frame__game {
@@ -80,12 +81,41 @@
 }
 
 @media(max-width: 1200px) {
+    .header {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .heading__frame__game {
+        padding-top: 0;
+        align-items: flex-start;
+    }
+
+    .navigation__frame__game {
+        position: relative;
+        top: 0;
+        right: 0;
+    }
+
     .container__fluid__game {
+        display: flex;
         width: 960px;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .main__frame__game {
+        margin-bottom: 0;
     }
 
     .cards__frame {
-        width: 960px;
+        height: 100%;
+        width: 620px;
     }
 }
 
