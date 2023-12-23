@@ -8,15 +8,38 @@
     background: #FFF;
     cursor: pointer;
     z-index: 10;
+    transition: padding 0.3s ease-in-out;
+}
+
+.svg__home {
+    display: inline-block;
+    width: 32px;
+    height: 30px;
+    background: url("../../assets/home.svg"), no-repeat;
+    z-index: 5;
+}
+
+.button__frame:hover {
+    box-shadow: -4px -4px 4px 0 rgba(255, 172, 48, 0.20) inset;
+    padding: 18px;
+    transition: padding 0.3s ease-in-out;
+}
+
+.button__frame:hover .svg__home {
+    background: url("../../assets/home_active.svg"), no-repeat;
 }
 
 @media(max-width: 960px) {
     .button__frame {
-        padding: 15px;
-        border-radius: 15px;
+        padding: 10px;
+        border-radius: 10px;
     }
 
-    .svg {
-        width: 20px;
+    .button__frame:hover {
+        padding: 12px;
+    }
+
+    .svg__home {
+        scale: 0.7;
     }
 }

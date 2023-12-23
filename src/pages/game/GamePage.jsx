@@ -1,53 +1,118 @@
 import './GamePage.css';
-import React, { useState, useEffect } from 'react';
-import { db } from '../../firebase';
-import { collection, getDocs, addDoc, updateDoc, deleteDoc } from '@firebase/firestore';
+import React, {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../../components/button/Button';
 import CardLeft from '../../components/card-left/CardLeft';
 import CardRight from '../../components/card-right/CardRight';
 import StatsButton from "../../components/statistics/StatsButton";
 import StatsMobile from "../../components/stats-mobile/StatsMobile";
+import Block from "../../components/block/Block";
 
 function GamePage() {
-    const [monkeys, setMonkeys] = useState([]);
-    const [name, setName] = useState('');
-    const [points, setPoints] = useState(0);
-    const monkeysRef = collection(db, 'monkeys');
+    const [ selectedCard, setSelectedCard] = useState(1);
+    const [ finishedGame, setFinishedGame ] = useState('off');
+    const [ selectedHeader, setSelectedHeader ] = useState('home');
 
+    // Change selectedCard to next card (index + 2)
+    let selectHandle = () => {
+        setSelectedCard(prevState => {
+            let newValue = prevState + 2;
+            if (newValue > 23) {
+                setFinishedGame('on');
+                console.log(finishedGame);
+            }
+            return newValue;
+        });
+        console.log(selectedCard);
+    };
+
+    // Game state changing
     useEffect(() => {
-        const getMonkeysData = async () => {
-            const data = await getDocs(monkeysRef);
-            console.log(data);
-            setMonkeys(data.docs.map((elem) => ({...elem.data(), id: elem.id})));
+        if (finishedGame === 'on') {
+            console.log("Игра закончена");
         }
+    }, [finishedGame]);
 
-        /*getMonkeysData();*/
-    }, []);
+    let headerSelectHandler = (headerSection) => {
+        setSelectedHeader(headerSection);
+    };
 
     return (
         <div className='container__game'>
-            <div className='container__fluid__game'>
-                <div className='main__frame__game'>
-                    <div className='header'>
-                        <div className='heading__frame__game'>
-                            <h1 className='head__game'>Голосование</h1>
-                            <p className='text'>выбери один из вариантов</p>
+            {finishedGame === 'off' && (
+                <div className='container__fluid__game'>
+                    <div className='main__frame__game'>
+                        <div className='header'>
+                            <div className='heading__frame__game'>
+                                <h1 className='head__game'>Голосование</h1>
+                                <p className='text'>выбери один из вариантов</p>
+                            </div>
+                            <div className='navigation__frame__game'>
+                                <Link to={'/this-or-that'}>
+                                    <div className="button__container">
+                                        <Button />
+                                    </div>
+                                </Link>
+                                <StatsButton />
+                            </div>
                         </div>
-                        <div className='navigation__frame__game'>
-                            <Link to={'/this-or-that'}>
-                                <Button />
-                            </Link>
-                            <StatsButton />
+                        <div className='cards__frame'>
+                            <CardLeft onSelect={() => selectHandle()} cardNumber={selectedCard} />
+                            <CardRight onSelect={() => selectHandle()} cardNumber={selectedCard + 1} />
                         </div>
                     </div>
-                    <div className='cards__frame'>
-                        <CardLeft />
-                        <CardRight />
+                    <StatsMobile />
+                </div>
+            )}
+            {finishedGame === 'on' && (
+                <div className='container__fluid__game'>
+                    <header>
+                        <h1 className='head__game finished'>Игра окончена!</h1>
+                        <div className="header__biocad">
+                            {selectedHeader === 'home' && (
+                                <div className="header__menu">
+                                    <div className="menu__dash active__frame" onClick={() => headerSelectHandler('home')}>
+                                        <p className="menu__text active__text">Главная</p>
+                                    </div>
+                                    <div className="menu__analytics default__frame" onClick={() => headerSelectHandler('stats')}>
+                                        <p className="menu__text default__text">Статистика</p>
+                                    </div>
+                                </div>
+                            )}
+                            {selectedHeader === 'stats' && (
+                                <div className="header__menu">
+                                    <div className="menu__dash default__frame" onClick={() => headerSelectHandler('home')}>
+                                        <p className="menu__text default__text">Главная</p>
+                                    </div>
+                                    <div className="menu__analytics active__frame" onClick={() => headerSelectHandler('stats')}>
+                                        <p className="menu__text active__text">Статистика</p>
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+                    </header>
+                    <div className="main__of__biocad">
+                        {selectedHeader === 'home' && (
+                            <div className="collection__frame" id="collections">
+                                <Link to={'/game'}>
+                                    <Block />
+                                </Link>
+                                <Link to={'/game'}>
+                                    <Block />
+                                </Link>
+                                <Link to={'/game'}>
+                                    <Block />
+                                </Link>
+                            </div>
+                        )}
+                        {selectedHeader === 'stats' && (
+                            <div id="collections">
+                                <StatsMobile />
+                            </div>
+                        )}
                     </div>
                 </div>
-                <StatsMobile />
-            </div>
+            )}
         </div>
     );
 }

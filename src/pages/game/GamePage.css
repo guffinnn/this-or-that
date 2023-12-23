@@ -155,7 +155,6 @@
     }
 
     .navigation__frame__game {
-        right: 70px;
         gap: 10px;
     }
 
@@ -224,7 +223,7 @@
         align-content: center;
         align-items: center;
         justify-content: space-between;
-        gap: 20px;
+        gap: 10px;
         padding-top: 20px;
     }
 
@@ -250,6 +249,18 @@
     .text {
         font-size: 14px;
     }
+
+    .active__text {
+        padding: 8px 8px 7px 8px;
+    }
+
+    .default__text {
+        padding: 8px;
+    }
+
+    .menu__text {
+        font-size: 12px;
+    }
 }
 
 @media(max-width: 380px) {
@@ -260,4 +271,111 @@
     .cards__frame {
         width: 290px;
     }
+}
+
+/*HEADER*/
+header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.finished {
+    color: #23B04A;
+    padding: 50px 0 10px 0;
+    opacity: 60%;
+}
+
+.header__biocad {
+    width: fit-content;
+    display: flex;
+    padding: 0 24px;
+    justify-content: center;
+    align-items: center;
+    /* background: #FFF; */
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+}
+
+.active__frame {
+    border-bottom: 2px solid #23B04A;
+}
+
+.active__text {
+    color: #23B04A;
+    padding: 16px 16px 14px 16px;
+}
+
+.default__frame {
+    border-bottom: none;
+    cursor: pointer;
+}
+
+.default__text {
+    color: rgba(0, 0, 0, 0.60);
+    padding: 16px;
+}
+
+.header__logo {
+    display: flex;
+    width: 132px;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+    align-self: stretch;
+}
+
+.header__menu {
+    height: 47px;
+    display: flex;
+    align-items: center;
+}
+
+.header__user:hover {
+    -webkit-filter: drop-shadow(0 0 5px #23B04A);
+    filter: drop-shadow(0 0 5px #23B04A);
+}
+
+.menu__dash {
+    display: flex;
+    align-items: center;
+}
+
+.menu__analytics {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.menu__text {
+    display: flex;
+    margin: 0 20px;
+    align-items: center;
+    gap: 8px;
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px; /* 114.286% */
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+}
+
+.main__of__biocad {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+#collections {
+    padding: 50px 0;
+    height: 100%;
 }
