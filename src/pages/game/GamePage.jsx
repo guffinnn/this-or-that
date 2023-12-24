@@ -1,17 +1,25 @@
 import './GamePage.css';
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+/*import { ref, onValue } from 'firebase/database';
+import { database } from "../../firebase";*/
 import Button from '../../components/button/Button';
 import CardLeft from '../../components/card-left/CardLeft';
 import CardRight from '../../components/card-right/CardRight';
 import StatsButton from "../../components/statistics/StatsButton";
 import StatsMobile from "../../components/stats-mobile/StatsMobile";
-import Block from "../../components/block/Block";
+
+/*const starCountRef = ref(database, 'posts/' + postId + '/starCount');
+onValue(starCountRef, (snapshot) => {
+    const data = snapshot.val();
+    console.log(data);
+});*/
 
 function GamePage() {
-    const [ selectedCard, setSelectedCard] = useState(1);
+    const [ selectedCard, setSelectedCard ] = useState(1);
     const [ finishedGame, setFinishedGame ] = useState('off');
     const [ selectedHeader, setSelectedHeader ] = useState('home');
+    const [ monkeys, setMonkeys ] = useState([]);
 
     // Change selectedCard to next card (index + 2)
     let selectHandle = () => {
@@ -33,7 +41,7 @@ function GamePage() {
         }
     }, [finishedGame]);
 
-    let headerSelectHandler = (headerSection) => {
+    let sectionSelected = (headerSection) => {
         setSelectedHeader(headerSection);
     };
 
@@ -71,20 +79,20 @@ function GamePage() {
                         <div className="header__biocad">
                             {selectedHeader === 'home' && (
                                 <div className="header__menu">
-                                    <div className="menu__dash active__frame" onClick={() => headerSelectHandler('home')}>
+                                    <div className="menu__dash active__frame" onClick={() => sectionSelected('home')}>
                                         <p className="menu__text active__text">Главная</p>
                                     </div>
-                                    <div className="menu__analytics default__frame" onClick={() => headerSelectHandler('stats')}>
+                                    <div className="menu__analytics default__frame" onClick={() => sectionSelected('stats')}>
                                         <p className="menu__text default__text">Статистика</p>
                                     </div>
                                 </div>
                             )}
                             {selectedHeader === 'stats' && (
                                 <div className="header__menu">
-                                    <div className="menu__dash default__frame" onClick={() => headerSelectHandler('home')}>
+                                    <div className="menu__dash default__frame" onClick={() => sectionSelected('home')}>
                                         <p className="menu__text default__text">Главная</p>
                                     </div>
-                                    <div className="menu__analytics active__frame" onClick={() => headerSelectHandler('stats')}>
+                                    <div className="menu__analytics active__frame" onClick={() => sectionSelected('stats')}>
                                         <p className="menu__text active__text">Статистика</p>
                                     </div>
                                 </div>
@@ -94,15 +102,13 @@ function GamePage() {
                     <div className="main__of__biocad">
                         {selectedHeader === 'home' && (
                             <div className="collection__frame" id="collections">
-                                <Link to={'/game'}>
-                                    <Block />
-                                </Link>
-                                <Link to={'/game'}>
-                                    <Block />
-                                </Link>
-                                <Link to={'/game'}>
-                                    <Block />
-                                </Link>
+                                /*
+
+                                 Collections of cards
+                                 if collections.isEmpty():
+                                    output CardCollections isEmpty
+
+                                 */
                             </div>
                         )}
                         {selectedHeader === 'stats' && (

@@ -1,7 +1,7 @@
 import './HomePage.css';
+import { Link } from 'react-router-dom';
 import Button from "../../components/button/Button";
 import Block from "../../components/block/Block";
-import { Link } from 'react-router-dom';
 
 function HomePage() {
     return (
@@ -19,13 +19,7 @@ function HomePage() {
                     </div>
                     <div className="collection__frame">
                         <Link to={'/game'}>
-                            <Block />
-                        </Link>
-                        <Link to={'/game'}>
-                            <Block />
-                        </Link>
-                        <Link to={'/game'}>
-                            <Block />
+                            <Block name={'monkeys'} />
                         </Link>
                     </div>
                 </div>
