@@ -1,31 +1,66 @@
 import './GamePage.css';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-/*import { ref, onValue } from 'firebase/database';
-import { database } from "../../firebase";*/
+import { ref, onValue, update } from 'firebase/database';
+import { database } from "../../firebase";
 import Button from '../../components/button/Button';
 import CardLeft from '../../components/card-left/CardLeft';
 import CardRight from '../../components/card-right/CardRight';
 import StatsButton from "../../components/statistics/StatsButton";
 import StatsMobile from "../../components/stats-mobile/StatsMobile";
 
-/*const starCountRef = ref(database, 'posts/' + postId + '/starCount');
-onValue(starCountRef, (snapshot) => {
-    const data = snapshot.val();
-    console.log(data);
-});*/
-
 function GamePage() {
     const [ selectedCard, setSelectedCard ] = useState(1);
     const [ finishedGame, setFinishedGame ] = useState('off');
     const [ selectedHeader, setSelectedHeader ] = useState('home');
-    const [ monkeys, setMonkeys ] = useState([]);
+    const [ monkeys, setMonkeys ] = useState([0, 0, 0]);
 
-    // Change selectedCard to next card (index + 2)
+    // Gets cards from firebase
+    let getMonkeys = () => {
+        const monkeyRef = ref(database, 'cards');
+
+        onValue(monkeyRef, (snapshot) => {
+            const data = snapshot.val();
+            setMonkeys(data);
+            console.log(monkeys);
+        });
+    };
+
+    // Gets monkey favorite
+    let favoriteMonkeys = id => {
+        const monkey = monkeys.find(m => m.id === id);
+
+        // increase the likes
+        const monkeyRef = ref(database, `cards/${id}`);
+        onValue(monkeyRef, (snapshot) => {
+            const data = snapshot.val();
+            data.points += 1;
+            update(monkeyRef, {points: data.points});
+        });
+
+        getMonkeys();
+        selectHandle();
+    };
+
+    // Gets new random cards
+    let getRandomMonkeys = () => {
+        if (!monkeys) {
+            return;
+        }
+
+        const idx1 = Math.floor(Math.random() * monkeys.length);
+        const idx2 = Math.floor(Math.random() * monkeys.length);
+
+        setSelectedCard(idx1);
+        setSelectedCard(idx2);
+    };
+
+    // Changes selectedCard to next card (index + 2)
     let selectHandle = () => {
+        getMonkeys();
         setSelectedCard(prevState => {
             let newValue = prevState + 2;
-            if (newValue > 23) {
+            if (newValue > monkeys.length) {
                 setFinishedGame('on');
                 console.log(finishedGame);
             }
