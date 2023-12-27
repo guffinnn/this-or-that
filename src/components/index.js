@@ -25,125 +25,125 @@ import img24 from '../assets/monkeys/24.jpg';
 
 export {img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14, img15, img16, img17, img18, img19, img20, img21, img22, img23, img24};
 
-export const MONKEYS = [
+export let MONKEYS = [
     {
-        "card_PK": 1,
-        "name": "Банановый герой",
-        "points": 0
+        card_PK: 1,
+        name: "Банановый герой",
+        points: 0
     },
     {
-        "card_PK": 2,
-        "name": "Пушистый шалун",
-        "points": 0
+        card_PK: 2,
+        name: "Пушистый шалун",
+        points: 0
     },
     {
-        "card_PK": 3,
-        "name": "Кокосовый бешенец",
-        "points": 0
+        card_PK: 3,
+        name: "Кокосовый бешенец",
+        points: 0
     },
     {
-        "card_PK": 4,
-        "name": "Веселая хвостатая",
-        "points": 0
+        card_PK: 4,
+        name: "Веселая хвостатая",
+        points: 0
     },
     {
-        "card_PK": 5,
-        "name": "Смешной кулик",
-        "points": 0
+        card_PK: 5,
+        name: "Смешной кулик",
+        points: 0
     },
     {
-        "card_PK": 6,
-        "name": "Милый хулиган",
-        "points": 0
+        card_PK: 6,
+        name: "Милый хулиган",
+        points: 0
     },
     {
-        "card_PK": 7,
-        "name": "Фруктовый шаман",
-        "points": 0
+        card_PK: 7,
+        name: "Фруктовый шаман",
+        points: 0
     },
     {
-        "card_PK": 8,
-        "name": "Любопытный кокич",
-        "points": 0
+        card_PK: 8,
+        name: "Любопытный кокич",
+        points: 0
     },
     {
-        "card_PK": 9,
-        "name": "Улыбчивая бабочка",
-        "points": 0
+        card_PK: 9,
+        name: "Улыбчивая бабочка",
+        points: 0
     },
     {
-        "card_PK": 10,
-        "name": "Бесшабашный шипун",
-        "points": 0
+        card_PK: 10,
+        name: "Бесшабашный шипун",
+        points: 0
     },
     {
-        "card_PK": 11,
-        "name": "Лазерный обжора",
-        "points": 0
+        card_PK: 11,
+        name: "Лазерный обжора",
+        points: 0
     },
     {
-        "card_PK": 12,
-        "name": "Снежный каскадер",
-        "points": 0
+        card_PK: 12,
+        name: "Снежный каскадер",
+        points: 0
     },
     {
-        "card_PK": 13,
-        "name": "Чудной весельчак",
-        "points": 0
+        card_PK: 13,
+        name: "Чудной весельчак",
+        points: 0
     },
     {
-        "card_PK": 14,
-        "name": "Барабанный гений",
-        "points": 0
+        card_PK: 14,
+        name: "Барабанный гений",
+        points: 0
     },
     {
-        "card_PK": 15,
-        "name": "Праздничный фейерверк",
-        "points": 0
+        card_PK: 15,
+        name: "Праздничный фейерверк",
+        points: 0
     },
     {
-        "card_PK": 16,
-        "name": "Сладкоежка с балконом",
-        "points": 0
+        card_PK: 16,
+        name: "Сладкоежка с балконом",
+        points: 0
     },
     {
-        "card_PK": 17,
-        "name": "Виртуозный двоежка",
-        "points": 0
+        card_PK: 17,
+        name: "Виртуозный двоежка",
+        points: 0
     },
     {
-        "card_PK": 18,
-        "name": "Хитрый кошарик",
-        "points": 0
+        card_PK: 18,
+        name: "Хитрый кошарик",
+        points: 0
     },
     {
-        "card_PK": 19,
-        "name": "Пушистый удалец",
-        "points": 0
+        card_PK: 19,
+        name: "Пушистый удалец",
+        points: 0
     },
     {
-        "card_PK": 20,
-        "name": "Радостный прыгун",
-        "points": 0
+        card_PK: 20,
+        name: "Радостный прыгун",
+        points: 0
     },
     {
-        "card_PK": 21,
-        "name": "Быстроногий гоблин",
-        "points": 0
+        card_PK: 21,
+        name: "Быстроногий гоблин",
+        points: 0
     },
     {
-        "card_PK": 22,
-        "name": "Вертолетный акробат",
-        "points": 0
+        card_PK: 22,
+        name: "Вертолетный акробат",
+        points: 0
     },
     {
-        "card_PK": 23,
-        "name": "Спелый кумар",
-        "points": 0
+        card_PK: 23,
+        name: "Спелый кумар",
+        points: 0
     },
     {
-        "card_PK": 24,
-        "name": "Бодрый чудик",
-        "points": 0
+        card_PK: 24,
+        name: "Бодрый чудик",
+        points: 0
     }
 ];

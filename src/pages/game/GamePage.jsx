@@ -1,23 +1,24 @@
 import './GamePage.css';
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { ref, onValue, update } from 'firebase/database';
+import { ref, onValue, update, set } from 'firebase/database';
 import { database } from "../../firebase";
 import Button from '../../components/button/Button';
 import CardLeft from '../../components/card-left/CardLeft';
 import CardRight from '../../components/card-right/CardRight';
 import StatsButton from "../../components/statistics/StatsButton";
 import StatsMobile from "../../components/stats-mobile/StatsMobile";
+import { MONKEYS } from "../../components";
 
 function GamePage() {
     const [ selectedCard, setSelectedCard ] = useState(1);
     const [ finishedGame, setFinishedGame ] = useState('off');
-    const [ selectedHeader, setSelectedHeader ] = useState('home');
-    const [ monkeys, setMonkeys ] = useState([0, 0, 0]);
+    const [ monkeys, setMonkeys ] = useState(MONKEYS);
 
     // Gets cards from firebase
     let getMonkeys = () => {
-        const monkeyRef = ref(database, 'cards');
+        const monkeyRef = ref(database, '/cards');
 
         onValue(monkeyRef, (snapshot) => {
             const data = snapshot.val();
@@ -26,38 +27,15 @@ function GamePage() {
         });
     };
 
-    // Gets monkey favorite
-    let favoriteMonkeys = id => {
-        const monkey = monkeys.find(m => m.id === id);
-
-        // increase the likes
-        const monkeyRef = ref(database, `cards/${id}`);
-        onValue(monkeyRef, (snapshot) => {
-            const data = snapshot.val();
-            data.points += 1;
-            update(monkeyRef, {points: data.points});
-        });
-
-        getMonkeys();
-        selectHandle();
-    };
-
-    // Gets new random cards
-    let getRandomMonkeys = () => {
-        if (!monkeys) {
-            return;
-        }
-
-        const idx1 = Math.floor(Math.random() * monkeys.length);
-        const idx2 = Math.floor(Math.random() * monkeys.length);
-
-        setSelectedCard(idx1);
-        setSelectedCard(idx2);
+    // Update points in MONKEYS
+    let updatePoints = (cardIndex) => {
+        MONKEYS[cardIndex - 1].points += 100;
     };
 
     // Changes selectedCard to next card (index + 2)
-    let selectHandle = () => {
+    let selectHandle = (cardIndex) => {
         getMonkeys();
+        updatePoints(cardIndex);
         setSelectedCard(prevState => {
             let newValue = prevState + 2;
             if (newValue > monkeys.length) {
@@ -69,16 +47,19 @@ function GamePage() {
         console.log(selectedCard);
     };
 
+    let navigate = useNavigate();
+
     // Game state changing
     useEffect(() => {
         if (finishedGame === 'on') {
             console.log("Игра закончена");
+            navigate('/game-end');
+
+            // Save MONKEYS to firebase
+            const monkeyRef = ref(database, 'cards');
+            set(monkeyRef, MONKEYS);
         }
     }, [finishedGame]);
-
-    let sectionSelected = (headerSection) => {
-        setSelectedHeader(headerSection);
-    };
 
     return (
         <div className='container__game'>
@@ -100,58 +81,11 @@ function GamePage() {
                             </div>
                         </div>
                         <div className='cards__frame'>
-                            <CardLeft onSelect={() => selectHandle()} cardNumber={selectedCard} />
-                            <CardRight onSelect={() => selectHandle()} cardNumber={selectedCard + 1} />
+                            <CardLeft onSelect={() => selectHandle(selectedCard)} cardNumber={selectedCard} />
+                            <CardRight onSelect={() => selectHandle(selectedCard + 1)} cardNumber={selectedCard + 1} />
                         </div>
                     </div>
                     <StatsMobile />
-                </div>
-            )}
-            {finishedGame === 'on' && (
-                <div className='container__fluid__game'>
-                    <header>
-                        <h1 className='head__game finished'>Игра окончена!</h1>
-                        <div className="header__biocad">
-                            {selectedHeader === 'home' && (
-                                <div className="header__menu">
-                                    <div className="menu__dash active__frame" onClick={() => sectionSelected('home')}>
-                                        <p className="menu__text active__text">Главная</p>
-                                    </div>
-                                    <div className="menu__analytics default__frame" onClick={() => sectionSelected('stats')}>
-                                        <p className="menu__text default__text">Статистика</p>
-                                    </div>
-                                </div>
-                            )}
-                            {selectedHeader === 'stats' && (
-                                <div className="header__menu">
-                                    <div className="menu__dash default__frame" onClick={() => sectionSelected('home')}>
-                                        <p className="menu__text default__text">Главная</p>
-                                    </div>
-                                    <div className="menu__analytics active__frame" onClick={() => sectionSelected('stats')}>
-                                        <p className="menu__text active__text">Статистика</p>
-                                    </div>
-                                </div>
-                            )}
-                        </div>
-                    </header>
-                    <div className="main__of__biocad">
-                        {selectedHeader === 'home' && (
-                            <div className="collection__frame" id="collections">
-                                /*
-
-                                 Collections of cards
-                                 if collections.isEmpty():
-                                    output CardCollections isEmpty
-
-                                 */
-                            </div>
-                        )}
-                        {selectedHeader === 'stats' && (
-                            <div id="collections">
-                                <StatsMobile />
-                            </div>
-                        )}
-                    </div>
                 </div>
             )}
         </div>
