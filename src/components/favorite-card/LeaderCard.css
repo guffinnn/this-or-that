@@ -1,6 +1,6 @@
 .leader__card__frame {
     display: flex;
-    width: 200px;
+    width: 230px;
     padding-bottom: 20px;
     align-items: center;
     gap: 20px;
@@ -55,12 +55,20 @@
 }
 
 .cards__points {
+    width: 100%;
+    display: flex;
     color: #000;
     font-size: 12px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
     letter-spacing: -0.12px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
 }
 
 .point__text {

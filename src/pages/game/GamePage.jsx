@@ -2,19 +2,22 @@ import './GamePage.css';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { ref, onValue, update, set } from 'firebase/database';
+import { ref, onValue, update } from 'firebase/database';
 import { database } from "../../firebase";
+import { MONKEYS } from "../../components";
 import Button from '../../components/button/Button';
 import CardLeft from '../../components/card-left/CardLeft';
 import CardRight from '../../components/card-right/CardRight';
 import StatsButton from "../../components/statistics/StatsButton";
 import StatsMobile from "../../components/stats-mobile/StatsMobile";
-import { MONKEYS } from "../../components";
+import Loader from "../../components/loader/Loader";
 
 function GamePage() {
-    const [ selectedCard, setSelectedCard ] = useState(1);
+    const [ selectedCard, setSelectedCard ] = useState(0);
+    const [ cardPair, setCardPair ] = useState([0, 1]);
     const [ finishedGame, setFinishedGame ] = useState('off');
-    const [ monkeys, setMonkeys ] = useState(MONKEYS);
+    const [ gamePlayed, setGamePlayed ] = useState(false);
+    const [ isLoading, setIsLoading ] = useState(true);
 
     // Gets cards from firebase
     let getMonkeys = () => {
@@ -22,29 +25,44 @@ function GamePage() {
 
         onValue(monkeyRef, (snapshot) => {
             const data = snapshot.val();
-            setMonkeys(data);
-            console.log(monkeys);
+
+            //
+            // Bug - duplicates some monkeys from firebase to MONKEYS
+            //
+            /*Object.keys(data).forEach(key => {
+                MONKEYS.push(data[key]);
+            });*/
+
+            setIsLoading(false);
+            console.log(MONKEYS);
         });
     };
 
     // Update points in MONKEYS
     let updatePoints = (cardIndex) => {
-        MONKEYS[cardIndex - 1].points += 100;
+        // Save MONKEYS to firebase
+        const monkeyRef = ref(database, 'cards/' + cardIndex);
+
+        update(monkeyRef, {
+            "points": MONKEYS[cardIndex].points += 100
+        });
     };
 
-    // Changes selectedCard to next card (index + 2)
+    // Changes selectedCard to the card selected by the user
     let selectHandle = (cardIndex) => {
-        getMonkeys();
+        if (gamePlayed) {
+            return;
+        }
+
         updatePoints(cardIndex);
-        setSelectedCard(prevState => {
-            let newValue = prevState + 2;
-            if (newValue > monkeys.length) {
-                setFinishedGame('on');
-                console.log(finishedGame);
-            }
-            return newValue;
-        });
-        console.log(selectedCard);
+        setSelectedCard(cardIndex);
+        console.log(`Selected card ${selectedCard}`);
+
+        // Generate a new pair of random cards
+        const idx1 = Math.floor(Math.random() * MONKEYS.length);
+        const idx2 = Math.floor(Math.random() * MONKEYS.length);
+        setCardPair([idx1, idx2]);
+        console.log(`New card pair ${cardPair}`);
     };
 
     let navigate = useNavigate();
@@ -55,11 +73,21 @@ function GamePage() {
             console.log("Игра закончена");
             navigate('/game-end');
 
-            // Save MONKEYS to firebase
-            const monkeyRef = ref(database, 'cards');
-            set(monkeyRef, MONKEYS);
+            setGamePlayed(true);
         }
     }, [finishedGame]);
+
+    useEffect(() => {
+        getMonkeys();
+    }, []);
+
+    if (isLoading) {
+        return (
+            <div className="loader__container">
+                <Loader />
+            </div>
+        );
+    }
 
     return (
         <div className='container__game'>
@@ -81,8 +109,10 @@ function GamePage() {
                             </div>
                         </div>
                         <div className='cards__frame'>
-                            <CardLeft onSelect={() => selectHandle(selectedCard)} cardNumber={selectedCard} />
-                            <CardRight onSelect={() => selectHandle(selectedCard + 1)} cardNumber={selectedCard + 1} />
+                            <CardLeft onSelect={() => selectHandle(cardPair[0])}
+                                      cardNumber={MONKEYS[cardPair[0]].card_PK} />
+                            <CardRight onSelect={() => selectHandle(cardPair[1])}
+                                       cardNumber={MONKEYS[cardPair[1]].card_PK} />
                         </div>
                     </div>
                     <StatsMobile />

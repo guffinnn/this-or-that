@@ -10,11 +10,12 @@ function StatsMobile() {
                 <h3 className="heading">Таблица лидеров</h3>
             </div>
             <div className="stats__mainframe">
-                <LeaderCard {...MONKEYS[0]} />
-                <LeaderCard {...MONKEYS[1]} />
-                <LeaderCard {...MONKEYS[2]} />
-                <LeaderCard {...MONKEYS[3]} />
-                <LeaderCard {...MONKEYS[4]} />
+                {MONKEYS
+                    .sort((a, b) => b.points - a.points)
+                    .slice(0, 5)
+                    .map((monkey, idx) => (
+                        <LeaderCard index={idx} {...monkey} />
+                    ))}
             </div>
         </div>
     );

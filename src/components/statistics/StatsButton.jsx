@@ -27,7 +27,7 @@ function StatsButton() {
                         .sort((a, b) => b.points - a.points)
                         .slice(0, 5)
                         .map((monkey, idx) => (
-                            <LeaderCard key={monkey.card_PK} />
+                            <LeaderCard index={idx} {...monkey} />
                         ))}
                 </div>
             </div>

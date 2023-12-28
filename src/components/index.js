@@ -27,123 +27,123 @@ export {img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img1
 
 export let MONKEYS = [
     {
+        card_PK: 6,
+        name: "Милый хулиган",
+        points: 400
+    },
+    {
+        card_PK: 24,
+        name: "Бодрый чудик",
+        points: 400
+    },
+    {
+        card_PK: 16,
+        name: "Сладкоежка с балконом",
+        points: 300
+    },
+    {
+        card_PK: 10,
+        name: "Бесшабашный шипун",
+        points: 300
+    },
+    {
+        card_PK: 7,
+        name: "Фруктовый шаман",
+        points: 300
+    },
+    {
+        card_PK: 22,
+        name: "Вертолетный акробат",
+        points: 300
+    },
+    {
+        card_PK: 13,
+        name: "Чудной весельчак",
+        points: 300
+    },
+    {
+        card_PK: 2,
+        name: "Пушистый шалун",
+        points: 200
+    },
+    {
+        card_PK: 20,
+        name: "Радостный прыгун",
+        points: 200
+    },
+    {
+        card_PK: 14,
+        name: "Барабанный гений",
+        points: 200
+    },
+    {
+        card_PK: 5,
+        name: "Смешной кулик",
+        points: 200
+    },
+    {
+        card_PK: 21,
+        name: "Быстроногий гоблин",
+        points: 200
+    },
+    {
+        card_PK: 3,
+        name: "Кокосовый бешенец",
+        points: 200
+    },
+    {
+        card_PK: 18,
+        name: "Хитрый кошарик",
+        points: 200
+    },
+    {
+        card_PK: 9,
+        name: "Улыбчивая бабочка",
+        points: 200
+    },
+    {
+        card_PK: 8,
+        name: "Любопытный кокич",
+        points: 200
+    },
+    {
+        card_PK: 23,
+        name: "Спелый кумар",
+        points: 200
+    },
+    {
+        card_PK: 11,
+        name: "Лазерный обжора",
+        points: 100
+    },
+    {
+        card_PK: 4,
+        name: "Веселая хвостатая",
+        points: 100
+    },
+    {
+        card_PK: 17,
+        name: "Виртуозный двоежка",
+        points: 100
+    },
+    {
+        card_PK: 15,
+        name: "Праздничный фейерверк",
+        points: 100
+    },
+    {
         card_PK: 1,
         name: "Банановый герой",
         points: 0
     },
     {
-        card_PK: 2,
-        name: "Пушистый шалун",
-        points: 0
-    },
-    {
-        card_PK: 3,
-        name: "Кокосовый бешенец",
-        points: 0
-    },
-    {
-        card_PK: 4,
-        name: "Веселая хвостатая",
-        points: 0
-    },
-    {
-        card_PK: 5,
-        name: "Смешной кулик",
-        points: 0
-    },
-    {
-        card_PK: 6,
-        name: "Милый хулиган",
-        points: 0
-    },
-    {
-        card_PK: 7,
-        name: "Фруктовый шаман",
-        points: 0
-    },
-    {
-        card_PK: 8,
-        name: "Любопытный кокич",
-        points: 0
-    },
-    {
-        card_PK: 9,
-        name: "Улыбчивая бабочка",
-        points: 0
-    },
-    {
-        card_PK: 10,
-        name: "Бесшабашный шипун",
-        points: 0
-    },
-    {
-        card_PK: 11,
-        name: "Лазерный обжора",
-        points: 0
-    },
-    {
         card_PK: 12,
         name: "Снежный каскадер",
-        points: 0
-    },
-    {
-        card_PK: 13,
-        name: "Чудной весельчак",
-        points: 0
-    },
-    {
-        card_PK: 14,
-        name: "Барабанный гений",
-        points: 0
-    },
-    {
-        card_PK: 15,
-        name: "Праздничный фейерверк",
-        points: 0
-    },
-    {
-        card_PK: 16,
-        name: "Сладкоежка с балконом",
-        points: 0
-    },
-    {
-        card_PK: 17,
-        name: "Виртуозный двоежка",
-        points: 0
-    },
-    {
-        card_PK: 18,
-        name: "Хитрый кошарик",
-        points: 0
+        points: 100
     },
     {
         card_PK: 19,
         name: "Пушистый удалец",
-        points: 0
-    },
-    {
-        card_PK: 20,
-        name: "Радостный прыгун",
-        points: 0
-    },
-    {
-        card_PK: 21,
-        name: "Быстроногий гоблин",
-        points: 0
-    },
-    {
-        card_PK: 22,
-        name: "Вертолетный акробат",
-        points: 0
-    },
-    {
-        card_PK: 23,
-        name: "Спелый кумар",
-        points: 0
-    },
-    {
-        card_PK: 24,
-        name: "Бодрый чудик",
         points: 0
     }
 ];
