@@ -1,16 +1,18 @@
-#left {
+#left, #leftactive {
     position: relative;
     width: 346px;
     height: 525px;
 }
 
-#left:hover {
+#left .card__image__container {
+    transform: rotate(0deg);
+    transition: transform 0.3s ease;
+}
+
+#left:hover .card__image__container {
     transition: transform 0.3s ease;
     transform: rotate(-15deg);
-
-    .heart__frame {
-        visibility: visible;
-    }
+    filter: blur(5px);
 }
 
 .card__image {
@@ -31,7 +33,15 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    visibility: hidden;
+    opacity: 0;
+    transform: rotate(0deg);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease;
+}
+
+#left:hover .heart__frame {
+    transform: rotate(-15deg);
+    opacity: 100;
+    transition: opacity 0.3s ease-in-out;
 }
 
 .heart__image {
@@ -40,7 +50,7 @@
 }
 
 @media(max-width: 1200px) {
-    #left {
+    #left, #leftactive {
         width: 234px;
         height: 355px;
     }
@@ -64,17 +74,59 @@
 }
 
 @media(max-width: 720px) {
-    #left {
+    #left, #leftactive {
         width: 300px;
         height: 222px;
     }
 
-    #left:hover {
+    #left:hover .card__image__container, #left:hover .heart__frame {
         transform: rotate(0deg);
+    }
 
-        .heart__frame {
-            visibility: visible;
+    #left:hover .card__image__container {
+        transition: transform 0.3s ease;
+        filter: blur(0px);
+    }
+
+    #left:hover .heart__frame {
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    @keyframes card-animate {
+        0% {
+            filter: blur(0px);
         }
+
+        50% {
+            filter: blur(5px);
+        }
+
+        100% {
+            filter: blur(0px);
+        }
+    }
+
+    @keyframes heart-animate {
+        0% {
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 100;
+        }
+
+        100% {
+            opacity: 0;
+        }
+    }
+
+    #leftactive .card__image__container {
+        animation: card-animate 1s ease-in-out;
+    }
+
+    #leftactive .heart__frame {
+        animation: heart-animate 1s ease-in-out;
     }
 
     .card__image {
@@ -96,7 +148,7 @@
 }
 
 @media(max-width: 380px) {
-    #left {
+    #left, #leftactive {
         width: 100%;
         height: 230px;
     }

@@ -18,6 +18,8 @@ function GamePage() {
     const [ finishedGame, setFinishedGame ] = useState('off');
     const [ gamePlayed, setGamePlayed ] = useState(false);
     const [ isLoading, setIsLoading ] = useState(true);
+    const [isActiveLeft, setIsActiveLeft] = useState(false);
+    const [isActiveRight, setIsActiveRight] = useState(false);
 
     // Gets cards from firebase
     let getMonkeys = () => {
@@ -48,6 +50,26 @@ function GamePage() {
         });
     };
 
+    const handleClick = (cardIndex) => {
+        // Generate a new pair of random cards
+        const idx1 = Math.floor(Math.random() * MONKEYS.length);
+        const idx2 = Math.floor(Math.random() * MONKEYS.length);
+
+        if (cardIndex === cardPair[0]) {
+            setIsActiveLeft(true);
+        } else {
+            setIsActiveRight(true);
+        }
+
+        setTimeout(() => {
+            setCardPair([idx1, idx2]);
+            console.log(`New card pair ${cardPair}`);
+
+            setIsActiveLeft(false);
+            setIsActiveRight(false);
+        }, 1000);
+    };
+
     // Changes selectedCard to the card selected by the user
     let selectHandle = (cardIndex) => {
         if (gamePlayed) {
@@ -58,11 +80,7 @@ function GamePage() {
         setSelectedCard(cardIndex);
         console.log(`Selected card ${selectedCard}`);
 
-        // Generate a new pair of random cards
-        const idx1 = Math.floor(Math.random() * MONKEYS.length);
-        const idx2 = Math.floor(Math.random() * MONKEYS.length);
-        setCardPair([idx1, idx2]);
-        console.log(`New card pair ${cardPair}`);
+        handleClick(cardIndex);
     };
 
     let navigate = useNavigate();
@@ -110,8 +128,10 @@ function GamePage() {
                         </div>
                         <div className='cards__frame'>
                             <CardLeft onSelect={() => selectHandle(cardPair[0])}
+                                      isActive={isActiveLeft}
                                       cardNumber={MONKEYS[cardPair[0]].card_PK} />
                             <CardRight onSelect={() => selectHandle(cardPair[1])}
+                                       isActive={isActiveRight}
                                        cardNumber={MONKEYS[cardPair[1]].card_PK} />
                         </div>
                     </div>
