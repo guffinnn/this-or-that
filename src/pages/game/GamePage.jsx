@@ -1,6 +1,6 @@
 import './GamePage.css';
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+/*import { useNavigate } from 'react-router-dom';*/
 import { Link } from 'react-router-dom';
 import { ref, onValue, update } from 'firebase/database';
 import { database } from "../../firebase";
@@ -60,7 +60,6 @@ function GamePage() {
         }
 
         setCounter(prevState => prevState + 1);
-        console.log(counter);
         if(counter === 10) {
             setFinishedGame('on');
         }
@@ -119,8 +118,7 @@ function GamePage() {
                         <div className='header'>
                             <div className='heading__frame__game'>
                                 <h1 className='head__game'>Голосование</h1>
-                                {/*<p className='text'>выбери один из вариантов</p>*/}
-                                <p className='status__text__game'>кард выбрано: {counter}/10</p>
+                                <p className='text'>выбери один из вариантов</p>
                             </div>
                             <div className='navigation__frame__game'>
                                 <Link to={'/this-or-that'}>
@@ -128,6 +126,14 @@ function GamePage() {
                                         <Button />
                                     </div>
                                 </Link>
+                                <div className="button__container">
+                                    <div className="button__frame">
+                                        <div className="stats">
+                                            <p className="num__card">{counter}</p>
+                                            <p className="sum__card">/10</p>
+                                        </div>
+                                    </div>
+                                </div>
                                 <StatsButton monkeys={monkeys} />
                             </div>
                         </div>

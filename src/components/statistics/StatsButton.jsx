@@ -13,7 +13,7 @@ function StatsButton({ monkeys }) {
     return (
         <div className="statistics">
             <div className="button__container">
-                <div className="stats__button__frame" onClick={handleClick}>
+                <div className="button__frame" onClick={handleClick}>
                     <div className="svg__stats"></div>
                 </div>
             </div>

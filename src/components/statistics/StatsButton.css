@@ -5,16 +5,6 @@
     gap: 20px;
 }
 
-.stats__button__frame {
-    display: flex;
-    padding: 23px;
-    align-items: flex-start;
-    gap: 10px;
-    border-radius: 20px;
-    background: #FFF;
-    cursor: pointer;
-}
-
 .statistics__frame {
     transition: all 0.5s ease;
 }
@@ -68,11 +58,6 @@
 }
 
 @media(max-width: 960px) {
-    .stats__button__frame {
-        padding: 15px;
-        border-radius: 15px;
-    }
-
     .svg__stats {
         width: 18px;
     }
@@ -92,22 +77,19 @@
     z-index: 5;
 }
 
-.stats__button__frame:hover {
-    box-shadow: -4px -4px 4px 0 rgba(151, 71, 255, 0.20) inset;
-    padding: 21px;
-    transition: padding 0.3s ease-in-out;
-}
-
-.stats__button__frame:hover .svg__stats {
-    background: url("../../assets/statistics_active.svg"), no-repeat;
-}
-
 .button__container {
     width: 72px;
     height: 72px;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@media(max-width: 980px) {
+    .button__container {
+        width: fit-content;
+        height: fit-content;
+    }
 }
 
 @media(max-width: 420px) {

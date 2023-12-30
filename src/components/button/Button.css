@@ -1,3 +1,11 @@
+.svg__home {
+    display: inline-block;
+    width: 32px;
+    height: 30px;
+    background: url("../../assets/home.svg"), no-repeat;
+    z-index: 5;
+}
+
 .button__frame {
     display: flex;
     padding: 20px;
@@ -11,22 +19,10 @@
     transition: padding 0.3s ease-in-out;
 }
 
-.svg__home {
-    display: inline-block;
-    width: 32px;
-    height: 30px;
-    background: url("../../assets/home.svg"), no-repeat;
-    z-index: 5;
-}
-
 .button__frame:hover {
-    box-shadow: -4px -4px 4px 0 rgba(255, 172, 48, 0.20) inset;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
     padding: 18px;
     transition: padding 0.3s ease-in-out;
-}
-
-.button__frame:hover .svg__home {
-    background: url("../../assets/home_active.svg"), no-repeat;
 }
 
 @media(max-width: 960px) {

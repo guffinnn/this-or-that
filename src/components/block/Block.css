@@ -37,6 +37,10 @@
     letter-spacing: -0.14px;
 }
 
+.moderate {
+    background: #FF9D35;
+}
+
 .main__of__content {
     width: 320px;
     display: flex;
@@ -76,6 +80,8 @@
 }
 
 .image__block {
+    width: 100px;
+    object-fit: cover;
     border-radius: 20px;
     border: 2px solid #E7E7E7;
     background: lightgray 50% / cover no-repeat;

@@ -21,6 +21,8 @@ function HomePage() {
                         <Link to={'/game'}>
                             <Block name={'monkeys'} />
                         </Link>
+                        <Block name={''} />
+                        <Block name={''} />
                     </div>
                 </div>
             </div>
