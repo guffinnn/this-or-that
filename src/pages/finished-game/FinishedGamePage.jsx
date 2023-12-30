@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import Block from "../../components/block/Block";
 import StatsMobile from "../../components/stats-mobile/StatsMobile";
 
-function FinishedGamePage() {
+function FinishedGamePage({ monkeys }) {
     const [ selectedHeader, setSelectedHeader ] = useState('home');
 
     let sectionSelected = (headerSection) => {
@@ -48,7 +48,7 @@ function FinishedGamePage() {
                     )}
                     {selectedHeader === 'stats' && (
                         <div id="collections">
-                            <StatsMobile />
+                            <StatsMobile monkeys={monkeys} />
                         </div>
                     )}
                 </div>

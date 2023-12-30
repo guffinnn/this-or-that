@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
 import './StatsButton.css';
-import { MONKEYS } from '../index';
+import React, { useState } from 'react';
 import LeaderCard from "../favorite-card/LeaderCard";
 
-function StatsButton() {
+function StatsButton({ monkeys }) {
     const [isStatsVisible, setStatsVisible] = useState(true);
 
     // Click Listener for stats__button__frame
@@ -23,7 +22,7 @@ function StatsButton() {
                     <h3 className="heading">Таблица лидеров</h3>
                 </div>
                 <div className="stats__mainframe">
-                    {MONKEYS
+                    {monkeys
                         .sort((a, b) => b.points - a.points)
                         .slice(0, 5)
                         .map((monkey, idx) => (

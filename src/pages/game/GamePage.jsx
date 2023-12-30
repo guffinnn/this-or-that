@@ -4,13 +4,13 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { ref, onValue, update } from 'firebase/database';
 import { database } from "../../firebase";
-import { MONKEYS } from "../../components";
 import Button from '../../components/button/Button';
 import CardLeft from '../../components/card-left/CardLeft';
 import CardRight from '../../components/card-right/CardRight';
 import StatsButton from "../../components/statistics/StatsButton";
 import StatsMobile from "../../components/stats-mobile/StatsMobile";
 import Loader from "../../components/loader/Loader";
+import FinishedGamePage from "../finished-game/FinishedGamePage";
 
 function GamePage() {
     const [ selectedCard, setSelectedCard ] = useState(0);
@@ -18,8 +18,10 @@ function GamePage() {
     const [ finishedGame, setFinishedGame ] = useState('off');
     const [ gamePlayed, setGamePlayed ] = useState(false);
     const [ isLoading, setIsLoading ] = useState(true);
-    const [isActiveLeft, setIsActiveLeft] = useState(false);
-    const [isActiveRight, setIsActiveRight] = useState(false);
+    const [ isActiveLeft, setIsActiveLeft ] = useState(false);
+    const [ isActiveRight, setIsActiveRight ] = useState(false);
+    const [ monkeys, setMonkeys ] = useState([]);
+    const [ counter, setCounter ] = useState(0);
 
     // Gets cards from firebase
     let getMonkeys = () => {
@@ -27,16 +29,12 @@ function GamePage() {
 
         onValue(monkeyRef, (snapshot) => {
             const data = snapshot.val();
+            const newMonkeys = Object.values(data); // Get values from db
 
-            //
-            // Bug - duplicates some monkeys from firebase to MONKEYS
-            //
-            /*Object.keys(data).forEach(key => {
-                MONKEYS.push(data[key]);
-            });*/
+            setMonkeys(newMonkeys); // Set new state for monkeys
 
             setIsLoading(false);
-            console.log(MONKEYS);
+            console.log(newMonkeys); // Output new values
         });
     };
 
@@ -46,19 +44,25 @@ function GamePage() {
         const monkeyRef = ref(database, 'cards/' + cardIndex);
 
         update(monkeyRef, {
-            "points": MONKEYS[cardIndex].points += 100
+            "points": monkeys[cardIndex].points += 100
         });
     };
 
     const handleClick = (cardIndex) => {
         // Generate a new pair of random cards
-        const idx1 = Math.floor(Math.random() * MONKEYS.length);
-        const idx2 = Math.floor(Math.random() * MONKEYS.length);
+        const idx1 = Math.floor(Math.random() * monkeys.length);
+        const idx2 = Math.floor(Math.random() * monkeys.length);
 
         if (cardIndex === cardPair[0]) {
             setIsActiveLeft(true);
         } else {
             setIsActiveRight(true);
+        }
+
+        setCounter(prevState => prevState + 1);
+        console.log(counter);
+        if(counter === 10) {
+            setFinishedGame('on');
         }
 
         setTimeout(() => {
@@ -83,13 +87,13 @@ function GamePage() {
         handleClick(cardIndex);
     };
 
-    let navigate = useNavigate();
+    /*let navigate = useNavigate();*/
 
     // Game state changing
     useEffect(() => {
         if (finishedGame === 'on') {
             console.log("Игра закончена");
-            navigate('/game-end');
+            /*navigate('/game-end');*/
 
             setGamePlayed(true);
         }
@@ -115,7 +119,8 @@ function GamePage() {
                         <div className='header'>
                             <div className='heading__frame__game'>
                                 <h1 className='head__game'>Голосование</h1>
-                                <p className='text'>выбери один из вариантов</p>
+                                {/*<p className='text'>выбери один из вариантов</p>*/}
+                                <p className='status__text__game'>кард выбрано: {counter}/10</p>
                             </div>
                             <div className='navigation__frame__game'>
                                 <Link to={'/this-or-that'}>
@@ -123,20 +128,23 @@ function GamePage() {
                                         <Button />
                                     </div>
                                 </Link>
-                                <StatsButton />
+                                <StatsButton monkeys={monkeys} />
                             </div>
                         </div>
                         <div className='cards__frame'>
                             <CardLeft onSelect={() => selectHandle(cardPair[0])}
                                       isActive={isActiveLeft}
-                                      cardNumber={MONKEYS[cardPair[0]].card_PK} />
+                                      cardNumber={monkeys[cardPair[0]].card_PK} />
                             <CardRight onSelect={() => selectHandle(cardPair[1])}
                                        isActive={isActiveRight}
-                                       cardNumber={MONKEYS[cardPair[1]].card_PK} />
+                                       cardNumber={monkeys[cardPair[1]].card_PK} />
                         </div>
                     </div>
-                    <StatsMobile />
+                    <StatsMobile monkeys={monkeys} />
                 </div>
+            )}
+            {finishedGame === 'on' && (
+                <FinishedGamePage monkeys={monkeys} />
             )}
         </div>
     );

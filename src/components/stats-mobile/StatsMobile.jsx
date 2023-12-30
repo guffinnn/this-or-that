@@ -1,16 +1,15 @@
-import React from "react";
 import './StatsMobile.css';
-import { MONKEYS } from "../index";
+import React from "react";
 import LeaderCard from "../favorite-card/LeaderCard";
 
-function StatsMobile() {
+function StatsMobile({ monkeys }) {
     return (
         <div className="statistics__frame" id="mobile">
             <div className="heading__stats">
                 <h3 className="heading">Таблица лидеров</h3>
             </div>
             <div className="stats__mainframe">
-                {MONKEYS
+                {monkeys
                     .sort((a, b) => b.points - a.points)
                     .slice(0, 5)
                     .map((monkey, idx) => (
