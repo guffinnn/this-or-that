@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import Block from "../../components/block/Block";
 import StatsMobile from "../../components/stats-mobile/StatsMobile";
 

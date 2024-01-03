@@ -1,8 +1,8 @@
 import './GamePage.css';
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { ref, onValue, update } from 'firebase/database';
-import { database } from "../../firebase";
+import React, {useEffect, useState} from 'react';
+import {Link} from 'react-router-dom';
+import {onValue, ref, update} from 'firebase/database';
+import {database} from "../../firebase";
 import Button from '../../components/button/Button';
 import CardLeft from '../../components/card-left/CardLeft';
 import CardRight from '../../components/card-right/CardRight';
@@ -89,7 +89,6 @@ function GamePage() {
     useEffect(() => {
         if (finishedGame === 'on') {
             console.log("Игра закончена");
-            /*navigate('/game-end');*/
 
             setGamePlayed(true);
         }

@@ -1,5 +1,5 @@
 import './HomePage.css';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import Button from "../../components/button/Button";
 import Block from "../../components/block/Block";
 
@@ -9,7 +9,14 @@ function HomePage() {
             <div className="container__fluid">
                 <div className="navigation__frame">
                     <Link to={'/this-or-that'}>
-                        <Button />
+                        <div className="button__container">
+                            <Button />
+                        </div>
+                    </Link>
+                    <Link to={'/auth'}>
+                        <div className="button__container">
+                            <Button name='user' />
+                        </div>
                     </Link>
                 </div>
                 <div className="main__frame">

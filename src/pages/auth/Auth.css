@@ -1,0 +1,197 @@
+.auth__container {
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+form {
+    display: flex;
+    width: 480px;
+    padding: 48px;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    border-radius: 20px;
+    background: #FFF;
+}
+
+.form__title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    align-self: stretch;
+}
+
+.auth__title {
+    align-self: stretch;
+    text-align: center;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%; /* 43.2px */
+}
+
+.form__main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    align-self: stretch;
+}
+
+label {
+    align-self: stretch;
+    color: #000;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 24px */
+}
+
+input {
+    display: flex;
+    padding: 12px;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+    border: 1px solid #505050;
+    background: #FFF;
+    color: #000;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 24px */
+    border-radius: 10px;
+}
+
+.text__modal {
+    align-self: stretch;
+    color: #000;
+    text-align: center;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 27px */
+}
+
+.register__button {
+    display: flex;
+    padding: 12px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+    background: #000;
+    color: #FFF;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 24px */
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.register__button:hover, .google__button:hover {
+    box-sizing: border-box;
+    color: #FFF;
+    background: rgba(0, 0, 0, 0.60);
+    transition: color 0.3s ease, background 0.3s ease;
+}
+
+.google__button {
+    display: flex;
+    padding: 12px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    align-self: stretch;
+    color: #000;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 24px */
+    background: #FFF;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.form__footer {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.form__footer__text {
+    color: #000;
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 24px */
+}
+
+.form__footer__link {
+    color: #000;
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 24px */
+    text-decoration-line: underline;
+    cursor: pointer;
+}
+
+@media(max-width: 720px) {
+    form {
+        box-sizing: border-box;
+        width: 100%;
+        gap: 28px;
+    }
+}
+
+@media(max-width: 480px) {
+    .auth__title {
+        font-size: 24px;
+    }
+
+    .text__modal {
+        font-size: 14px;
+    }
+
+    form {
+        gap: 18px;
+        padding: 24px;
+    }
+
+    label {
+        font-size: 12px;
+    }
+
+    input {
+        font-size: 12px;
+    }
+
+    .register__button {
+        font-size: 12px;
+    }
+
+    .google__button {
+        font-size: 12px;
+    }
+
+    .form__footer {
+        flex-direction: column;
+    }
+
+    .form__footer__text {
+        font-size: 12px;
+    }
+
+    .form__footer__link {
+        font-size: 12px;
+    }
+}

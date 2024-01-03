@@ -1,9 +1,17 @@
 import './Button.css';
 
-function Button() {
+function Button({ name }) {
     return (
-        <div className="button__frame">
-            <div className="svg__home"></div>
+        <div>
+            {name==='user' && (
+                <div className="button__frame">
+                    <div className="svg__user"></div>
+                </div>
+            ) || (
+                <div className="button__frame">
+                    <div className="svg__home"></div>
+                </div>
+            )}
         </div>
     );
 }

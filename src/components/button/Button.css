@@ -6,6 +6,14 @@
     z-index: 5;
 }
 
+.svg__user {
+    display: inline-block;
+    width: 25px;
+    height: 31px;
+    background: url("../../assets/account.svg"), no-repeat;
+    z-index: 5;
+}
+
 .button__frame {
     display: flex;
     padding: 20px;
@@ -36,6 +44,10 @@
     }
 
     .svg__home {
+        scale: 0.7;
+    }
+
+    .svg__user {
         scale: 0.7;
     }
 }
