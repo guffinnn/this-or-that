@@ -1,6 +1,5 @@
 import './GamePage.css';
 import React, { useEffect, useState } from 'react';
-/*import { useNavigate } from 'react-router-dom';*/
 import { Link } from 'react-router-dom';
 import { ref, onValue, update } from 'firebase/database';
 import { database } from "../../firebase";
@@ -85,8 +84,6 @@ function GamePage() {
 
         handleClick(cardIndex);
     };
-
-    /*let navigate = useNavigate();*/
 
     // Game state changing
     useEffect(() => {

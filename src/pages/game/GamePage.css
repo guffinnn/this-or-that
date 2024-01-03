@@ -1,6 +1,6 @@
 .container__game {
     height: fit-content;
-    padding: 30px 0;
+    padding: 30px 0 120px 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -99,6 +99,10 @@
         position: relative;
         top: 0;
         right: 0;
+    }
+
+    .container__game {
+        padding: 30px 0;
     }
 
     .container__fluid__game {
@@ -377,7 +381,7 @@ header {
 }
 
 #collections {
-    padding: 50px 0;
+    padding: 50px 0 0 0;
     height: 100%;
 }
 

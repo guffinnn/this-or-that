@@ -11,7 +11,7 @@ function FinishedGamePage({ monkeys }) {
     };
 
     return (
-        <div className='container__game'>
+        <div className='container__game frame__finished'>
             <div className='container__fluid__game'>
                 <header>
                     <h1 className='head__game finished'>Игра окончена!</h1>

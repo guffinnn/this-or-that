@@ -22,7 +22,19 @@ import img21 from '../assets/monkeys/21.jpg';
 import img22 from '../assets/monkeys/22.jpg';
 import img23 from '../assets/monkeys/23.jpg';
 import img24 from '../assets/monkeys/24.jpg';
+import img25 from '../assets/monkeys/25.jpg';
+import img26 from '../assets/monkeys/26.jpg';
+import img27 from '../assets/monkeys/27.jpg';
+import img28 from '../assets/monkeys/28.jpg';
+import img29 from '../assets/monkeys/29.jpg';
+import img30 from '../assets/monkeys/30.jpg';
+import img31 from '../assets/monkeys/31.jpg';
+import img32 from '../assets/monkeys/32.jpg';
+import img33 from '../assets/monkeys/33.jpg';
+import img34 from '../assets/monkeys/34.jpg';
+import img35 from '../assets/monkeys/35.jpg';
+import img36 from '../assets/monkeys/36.jpg';
 
-export {img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14, img15, img16, img17, img18, img19, img20, img21, img22, img23, img24};
+export {img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14, img15, img16, img17, img18, img19, img20, img21, img22, img23, img24, img25, img26, img27, img28, img29, img30, img31, img32, img33, img34, img35, img36};
 
 export let MONKEYS = [];
