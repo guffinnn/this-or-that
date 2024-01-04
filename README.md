@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+# "This or That Game"
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Это приложение разработано на React с использованием Firebase и осуществляет функциональность игры "This or That", в которой из пары карточек нужно делать выбор в пользу одной, тем самым повышая ее рейтинг в общем списке карточек.
 
-## Available Scripts
+# Ознакомиться с веб-приложением
 
-In the project directory, you can run:
+Перейдите по ссылке:
 
-### `npm start`
+```
+https://guffinnn.github.io/this-or-that/
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Установка
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Склонируйте репозиторий на локальную машину:
 
-### `npm test`
+```
+git clone https://github.com/guffinnn/this-or-that.git
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Перейдите в директорию проекта:
 
-### `npm run build`
+```
+cd this-or-that-game
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. Установите зависимости:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Использование
 
-### `npm run eject`
+Запустите приложение с помощью команды:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```
+npm start
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Откройте ваш браузер и перейдите на страницу по адресу [http://localhost:3000](http://localhost:3000), чтобы начать использовать приложение "This or That Game".
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Особенности приложения
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Выбор коллекции карточек
+- Приятные анимации при наведении/выборе карточки
+- Подсчет статистики
+- Вывод списка лидеров карточек
+- Возможность авторизации пользователей
 
-## Learn More
+## Технологии
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- React
+- Firebase
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Вклад
 
-### Code Splitting
+Если вы нашли ошибку или хотите предложить новую функциональность, пожалуйста, создайте [issue](https://github.com/guffinnn/this-or-that/issues) или отправьте свой пул-реквест. Мы будем рады вашим вкладам!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Автор
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Имя: Даниил Дашкевич
+- GitHub: guffinnn(https://github.com/guffinnn)
