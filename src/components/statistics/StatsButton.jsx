@@ -1,5 +1,5 @@
 import './StatsButton.css';
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import LeaderCard from "../favorite-card/LeaderCard";
 
 function StatsButton({ monkeys }) {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './CardLeft.css';
 import * as Img from '../index';
 import heart from '../../assets/heart.svg';

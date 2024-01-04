@@ -1,6 +1,6 @@
 import './LeaderCard.css';
-import React, { useState, useEffect } from "react";
-import { Transition } from 'react-transition-group';
+import React, {useEffect, useState} from "react";
+import {Transition} from 'react-transition-group';
 import * as Img from '../index';
 
 function LeaderCard({index, card_PK, name, points}) {

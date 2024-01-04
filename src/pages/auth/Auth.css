@@ -163,6 +163,7 @@ input {
     }
 
     form {
+        box-sizing: content-box;
         gap: 18px;
         padding: 24px;
     }
