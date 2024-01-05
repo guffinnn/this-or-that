@@ -10,6 +10,7 @@ import StatsButton from "../../components/statistics/StatsButton";
 import StatsMobile from "../../components/stats-mobile/StatsMobile";
 import Loader from "../../components/loader/Loader";
 import FinishedGamePage from "../finished-game/FinishedGamePage";
+import Burger from "../../components/burger/Burger";
 
 function GamePage() {
     const [ selectedCard, setSelectedCard ] = useState(0);
@@ -117,19 +118,27 @@ function GamePage() {
                                 <p className='text'>выбери один из вариантов</p>
                             </div>
                             <div className='navigation__frame__game'>
-                                <Link to={'/this-or-that'}>
+                                <div className="buttons__container">
+                                    <Link to={'/auth'}>
+                                        <div className="button__container">
+                                            <Button name='user' />
+                                        </div>
+                                    </Link>
+                                    <Link to={'/this-or-that'}>
+                                        <div className="button__container">
+                                            <Button />
+                                        </div>
+                                    </Link>
                                     <div className="button__container">
-                                        <Button />
-                                    </div>
-                                </Link>
-                                <div className="button__container">
-                                    <div className="button__frame">
-                                        <div className="stats">
-                                            <p className="num__card">{counter}</p>
-                                            <p className="sum__card">/10</p>
+                                        <div className="button__frame">
+                                            <div className="stats">
+                                                <p className="num__card">{counter}</p>
+                                                <p className="sum__card">/10</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                                <Burger count={counter} />
                                 <StatsButton monkeys={monkeys} />
                             </div>
                         </div>

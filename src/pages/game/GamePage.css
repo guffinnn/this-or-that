@@ -30,6 +30,17 @@
     gap: 10px;
 }
 
+.buttons__container {
+    width: 169px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
 .main__frame__game {
     display: inline-flex;
     flex-direction: column;
@@ -177,6 +188,10 @@
         width: 380px;
     }
 
+    .main__frame__game {
+        position: relative;
+    }
+
     .cards__frame {
         width: 380px;
     }
@@ -194,9 +209,13 @@
     }
 
     .navigation__frame__game {
-        position: relative;
+        position: absolute;
         top: 0;
         right: 0;
+    }
+
+    .buttons__container {
+        width: 169px;
     }
 
     .heading__frame__game {
@@ -232,6 +251,10 @@
         padding-top: 20px;
     }
 
+    .buttons__container {
+        display: none;
+    }
+
     .navigation__frame__game {
         position: relative;
         top: 0;
@@ -239,6 +262,7 @@
     }
 
     .heading__frame__game {
+        /*display: none;*/
         padding-top: 0;
         align-items: flex-start;
     }

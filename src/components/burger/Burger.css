@@ -1,0 +1,47 @@
+.svg__burger {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: url("../../assets/burger.svg"), no-repeat;
+    z-index: 5;
+}
+
+.burger__container {
+    width: 480px;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: flex-start;
+    justify-content: flex-end;
+    gap: 10px;
+    transition: all 0.5s ease;
+}
+
+.burger__container.open {
+    top: 57px;
+    right: 0;
+    opacity: 1;
+    visibility: visible;
+}
+
+.burger__container.close {
+    top: 57px;
+    right: 0;
+    opacity: 0;
+    visibility: hidden;
+}
+
+@media(min-width: 420px) {
+    .burger {
+        display: none;
+    }
+}
+
+@media(max-width: 420px) {
+    .burger {
+        display: flex;
+        gap: 10px;
+    }
+}

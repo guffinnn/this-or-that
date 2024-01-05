@@ -81,20 +81,13 @@
     width: 72px;
     height: 72px;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: flex-end;
 }
 
 @media(max-width: 980px) {
     .button__container {
         width: fit-content;
         height: fit-content;
-    }
-}
-
-@media(max-width: 420px) {
-    .button__container {
-        width: 52px;
-        height: 52px;
     }
 }

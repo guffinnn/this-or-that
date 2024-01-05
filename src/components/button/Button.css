@@ -40,7 +40,8 @@
     }
 
     .button__frame:hover {
-        padding: 12px;
+        opacity: 60%;
+        padding: 10px;
     }
 
     .svg__home {

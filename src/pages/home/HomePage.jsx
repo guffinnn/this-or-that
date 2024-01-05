@@ -8,14 +8,14 @@ function HomePage() {
         <div className="container">
             <div className="container__fluid">
                 <div className="navigation__frame">
-                    <Link to={'/this-or-that'}>
-                        <div className="button__container">
-                            <Button />
-                        </div>
-                    </Link>
                     <Link to={'/auth'}>
                         <div className="button__container">
                             <Button name='user' />
+                        </div>
+                    </Link>
+                    <Link to={'/this-or-that'}>
+                        <div className="button__container">
+                            <Button />
                         </div>
                     </Link>
                 </div>
