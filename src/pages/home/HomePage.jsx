@@ -25,9 +25,14 @@ function HomePage() {
                         <p className="text">Выберите подборку карточек</p>
                     </div>
                     <div className="collection__frame">
-                        <Link to={'/game'}>
+                        <Link to={'/game/monkeys'}>
                             <Block name={'monkeys'} />
                         </Link>
+                        <Link to={'/game/ducks'}>
+                            <Block name={'ducks'} />
+                        </Link>
+                        <Block name={''} />
+                        <Block name={''} />
                         <Block name={''} />
                         <Block name={''} />
                     </div>

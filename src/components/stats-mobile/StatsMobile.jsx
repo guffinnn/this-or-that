@@ -2,7 +2,7 @@ import './StatsMobile.css';
 import React from "react";
 import LeaderCard from "../favorite-card/LeaderCard";
 
-function StatsMobile({ monkeys }) {
+function StatsMobile({ monkeys, type }) {
     return (
         <div className="statistics__frame" id="mobile">
             <div className="heading__stats">
@@ -13,7 +13,9 @@ function StatsMobile({ monkeys }) {
                     .sort((a, b) => b.points - a.points)
                     .slice(0, 5)
                     .map((monkey, idx) => (
-                        <LeaderCard index={idx} {...monkey} />
+                        <LeaderCard index={idx}
+                                    {...monkey}
+                                    type={type} />
                     ))}
             </div>
         </div>

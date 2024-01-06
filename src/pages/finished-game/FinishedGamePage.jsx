@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import Block from "../../components/block/Block";
 import StatsMobile from "../../components/stats-mobile/StatsMobile";
 
-function FinishedGamePage({ monkeys }) {
+function FinishedGamePage({ monkeys, type }) {
     const [ selectedHeader, setSelectedHeader ] = useState('home');
 
     let sectionSelected = (headerSection) => {
@@ -41,16 +41,22 @@ function FinishedGamePage({ monkeys }) {
                 <div className="main__of__biocad">
                     {selectedHeader === 'home' && (
                         <div className="collection__frame" id="collections">
-                            <Link to={'/game'}>
+                            <Link to={'/game/monkeys'}>
                                 <Block name={'monkeys'} />
                             </Link>
+                            <Link to={'/game/ducks'}>
+                                <Block name={'ducks'} />
+                            </Link>
+                            <Block name={''} />
+                            <Block name={''} />
                             <Block name={''} />
                             <Block name={''} />
                         </div>
                     )}
                     {selectedHeader === 'stats' && (
                         <div id="collections">
-                            <StatsMobile monkeys={monkeys} />
+                            <StatsMobile monkeys={monkeys}
+                                         type={type}/>
                         </div>
                     )}
                 </div>

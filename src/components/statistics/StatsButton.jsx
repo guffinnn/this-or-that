@@ -2,7 +2,7 @@ import './StatsButton.css';
 import React, {useState} from 'react';
 import LeaderCard from "../favorite-card/LeaderCard";
 
-function StatsButton({ monkeys }) {
+function StatsButton({ monkeys, type }) {
     const [isStatsVisible, setStatsVisible] = useState(true);
 
     // Click Listener for stats__button__frame
@@ -26,7 +26,9 @@ function StatsButton({ monkeys }) {
                         .sort((a, b) => b.points - a.points)
                         .slice(0, 5)
                         .map((monkey, idx) => (
-                            <LeaderCard index={idx} {...monkey} />
+                            <LeaderCard index={idx}
+                                        {...monkey}
+                                        type={type}/>
                         ))}
                 </div>
             </div>

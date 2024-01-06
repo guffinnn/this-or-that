@@ -4,22 +4,32 @@ import img from '../../assets/img.png';
 import * as Img from '../index';
 
 function Block({name}) {
+    let imageUrl;
+
+    switch(name) {
+        case 'monkeys':
+            imageUrl = Img["img1"];
+            break;
+        case 'ducks':
+            imageUrl = `https://random-d.uk/api/1.jpg`;
+    }
+
     return (
         <div className="block__frame">
             <div className="content">
-                <div className={`status ${(name === 'monkeys' && '') || (name === '' && 'moderate')}`}>
+                <div className={`status ${((name === 'monkeys' || name === 'ducks') && '') || (name === '' && 'moderate')}`}>
                     <p className='status__text'>
-                        {(name === 'monkeys' && 'Новинка') || (name === '' && 'На проверке')}
+                        {((name === 'monkeys' || name === 'ducks') && 'Новинка') || (name === '' && 'На проверке')}
                     </p>
                 </div>
                 <div className="main__of__content">
                     <div className="info__frame">
                         <p className="heading__info">
-                            {`This or that: ${(name === 'monkeys' && 'Обезьяны') || (name === '' && 'Coming soon...')}`}
+                            {`This or that: ${(name === 'monkeys' && 'Обезьяны') || (name === 'ducks' && 'Утки') || (name === '' && 'Coming soon...')}`}
                         </p>
                         <p className="text__info">Выбери своего фаворита!</p>
                     </div>
-                    <img className="image__block" alt="Card" src={(name === 'monkeys' && Img["img1"]) || (name === '' && img)} width="100"/>
+                    <img className="image__block" alt="Card" src={(name !== '' && imageUrl) || (name === '' && img)} width="100"/>
                 </div>
             </div>
         </div>

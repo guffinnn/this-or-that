@@ -9,7 +9,8 @@ function App() {
       <Router>
           <Routes>
               <Route path="/this-or-that" element={<HomePage />} />
-              <Route path="/game" element={<GamePage />} />
+              <Route path="/game/monkeys" element={<GamePage cardCollection={"cards"} />} />
+              <Route path="/game/ducks" element={<GamePage cardCollection={"ducks"} />} />
               <Route path="/game-end" element={<FinishedGamePage />} />
               <Route path="/auth" element={<Auth />} />
           </Routes>

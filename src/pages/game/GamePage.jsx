@@ -12,7 +12,7 @@ import Loader from "../../components/loader/Loader";
 import FinishedGamePage from "../finished-game/FinishedGamePage";
 import Burger from "../../components/burger/Burger";
 
-function GamePage() {
+function GamePage({ cardCollection }) {
     const [ selectedCard, setSelectedCard ] = useState(0);
     const [ cardPair, setCardPair ] = useState([0, 1]);
     const [ finishedGame, setFinishedGame ] = useState('off');
@@ -25,7 +25,7 @@ function GamePage() {
 
     // Gets cards from firebase
     let getMonkeys = () => {
-        const monkeyRef = ref(database, '/cards');
+        const monkeyRef = ref(database, `/${cardCollection}`);
 
         onValue(monkeyRef, (snapshot) => {
             const data = snapshot.val();
@@ -34,14 +34,13 @@ function GamePage() {
             setMonkeys(newMonkeys); // Set new state for monkeys
 
             setIsLoading(false);
-            console.log(newMonkeys); // Output new values
         });
     };
 
     // Update points in MONKEYS
     let updatePoints = (cardIndex) => {
         // Save MONKEYS to firebase
-        const monkeyRef = ref(database, 'cards/' + cardIndex);
+        const monkeyRef = ref(database, `/${cardCollection}/` + cardIndex);
 
         update(monkeyRef, {
             "points": monkeys[cardIndex].points += 100
@@ -139,23 +138,28 @@ function GamePage() {
                                     </div>
                                 </div>
                                 <Burger count={counter} />
-                                <StatsButton monkeys={monkeys} />
+                                <StatsButton monkeys={monkeys}
+                                             type={cardCollection} />
                             </div>
                         </div>
                         <div className='cards__frame'>
                             <CardLeft onSelect={() => selectHandle(cardPair[0])}
                                       isActive={isActiveLeft}
-                                      cardNumber={monkeys[cardPair[0]].card_PK} />
+                                      cardNumber={monkeys[cardPair[0]].card_PK}
+                                      type={cardCollection} />
                             <CardRight onSelect={() => selectHandle(cardPair[1])}
                                        isActive={isActiveRight}
-                                       cardNumber={monkeys[cardPair[1]].card_PK} />
+                                       cardNumber={monkeys[cardPair[1]].card_PK}
+                                       type={cardCollection} />
                         </div>
                     </div>
-                    <StatsMobile monkeys={monkeys} />
+                    <StatsMobile monkeys={monkeys}
+                                 type={cardCollection} />
                 </div>
             )}
             {finishedGame === 'on' && (
-                <FinishedGamePage monkeys={monkeys} />
+                <FinishedGamePage monkeys={monkeys}
+                                  type={cardCollection}/>
             )}
         </div>
     );
