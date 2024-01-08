@@ -8,6 +8,15 @@
     border-radius: 20px;
     background: #FFF;
     cursor: pointer;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.block__frame__ready:hover {
+    box-shadow: 1px 4px 4px 0 rgba(91, 213, 122, 0.20), -1px 0 4px 0 rgba(91, 213, 122, 0.10);
+}
+
+.block__frame__moderate:hover {
+    box-shadow: 1px 4px 4px 0 rgba(255, 157, 53, 0.30), -1px 0 4px 0 rgba(255, 157, 53, 0.10);
 }
 
 .content {
@@ -52,6 +61,7 @@
 }
 
 .info__frame {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;

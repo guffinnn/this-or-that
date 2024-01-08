@@ -1,8 +1,8 @@
 import './GamePage.css';
 import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
-import {onValue, ref, update} from 'firebase/database';
-import {database} from "../../firebase";
+import {onValue, ref, update, set} from 'firebase/database';
+import {auth, database} from "../../firebase";
 import Button from '../../components/button/Button';
 import CardLeft from '../../components/card-left/CardLeft';
 import CardRight from '../../components/card-right/CardRight';
@@ -11,6 +11,7 @@ import StatsMobile from "../../components/stats-mobile/StatsMobile";
 import Loader from "../../components/loader/Loader";
 import FinishedGamePage from "../finished-game/FinishedGamePage";
 import Burger from "../../components/burger/Burger";
+import {onAuthStateChanged} from "firebase/auth";
 
 function GamePage({ cardCollection }) {
     const [ selectedCard, setSelectedCard ] = useState(0);
@@ -22,6 +23,7 @@ function GamePage({ cardCollection }) {
     const [ isActiveRight, setIsActiveRight ] = useState(false);
     const [ monkeys, setMonkeys ] = useState([]);
     const [ counter, setCounter ] = useState(0);
+    const [user, setUser] = useState({});
 
     // Gets cards from firebase
     let getMonkeys = () => {
@@ -85,10 +87,33 @@ function GamePage({ cardCollection }) {
         handleClick(cardIndex);
     };
 
+    // Format date in firebase database
+    function formatDate(dateString) {
+        const date = new Date(dateString);
+        const day = date.getDate().toString().padStart(2, '0');
+        const month = (date.getMonth() + 1).toString().padStart(2, '0'); // Месяцы начинаются с 0 в JavaScript
+        const year = date.getFullYear();
+        const hours = date.getHours();
+        const minutes = date.getMinutes().toString().padStart(2, '0');
+
+        return `${day}.${month}.${year} ${hours}.${minutes}`;
+    }
+
+    // Save game stats to firebase for account page
+    const saveGame = (userId, gameId) => {
+        const gameRef = ref(database, `/games/${userId}/${gameId}`);
+        const finishedAt = new Date().toISOString();
+        set(gameRef, formatDate(finishedAt));
+    };
+
     // Game state changing
     useEffect(() => {
         if (finishedGame === 'on') {
             console.log("Игра закончена");
+
+            if(user) {
+                saveGame(user.uid, cardCollection);
+            }
 
             setGamePlayed(true);
         }
@@ -96,6 +121,14 @@ function GamePage({ cardCollection }) {
 
     useEffect(() => {
         getMonkeys();
+
+        onAuthStateChanged(auth, user => {
+            if (user) {
+                setUser(user);
+            } else {
+                setUser(null);
+            }
+        });
     }, []);
 
     if (isLoading) {

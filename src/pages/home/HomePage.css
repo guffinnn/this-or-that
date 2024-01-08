@@ -11,7 +11,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 100px;
+    gap: 20px;
     align-self: stretch;
 }
 
@@ -56,7 +56,7 @@ h1 {
 .collection__frame {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     align-content: center;
     gap: 10px;
     align-self: stretch;
@@ -66,7 +66,7 @@ h1 {
 @media(max-width: 1200px) {
     .container__fluid {
         width: 960px;
-        gap: 50px;
+        gap: 20px;
     }
 
     .main__frame {
@@ -78,7 +78,7 @@ h1 {
 @media(max-width: 960px) {
     .container__fluid {
         width: 720px;
-        gap: 50px;
+        gap: 20px;
     }
 
     .main__frame {
@@ -98,7 +98,7 @@ h1 {
 @media(max-width: 720px) {
     .container__fluid {
         width: 480px;
-        gap: 30px;
+        gap: 20px;
     }
 
     .main__frame {

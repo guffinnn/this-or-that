@@ -1,9 +1,11 @@
 import './Auth.css';
 import React, {useEffect, useState} from "react";
 import {createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup} from 'firebase/auth';
-import {auth} from "../../firebase";
+import {auth, database} from "../../firebase";
+import {onValue, ref} from 'firebase/database';
 import {Link} from "react-router-dom";
 import Button from "../../components/button/Button";
+import AccountBlock from "../../components/account-block/AccountBlock";
 
 function Auth() {
     const [user, setUser] = useState({});
@@ -11,10 +13,15 @@ function Auth() {
     const [login, setLogin] = useState("");
     const [password, setPassword] = useState("");
     const [status, setStatus] = useState(0);
+    const [sessionDate, setSessionDate] = useState([]);
+    const [loginDate, setLoginDate] = useState("");
 
     useEffect(() => {
         onAuthStateChanged(auth, user => {
             if (user) {
+                getGameData(user.uid);
+                const creationTime = new Date(user.metadata.creationTime);
+                setLoginDate(creationTime);
                 setUser(user);
             } else {
                 setUser(null);
@@ -58,6 +65,17 @@ function Auth() {
         }
     };
 
+    // Get a date info from firebase
+    function getGameData(userId) {
+        const gameRef = ref(database, `/games/${userId}`);
+
+        onValue(gameRef, (snapshot) => {
+            const data = snapshot.val();
+            const gameData = Object.entries(data);
+            setSessionDate(gameData);
+        });
+    }
+
     return (
         <div className="container">
             <div className="container__fluid auth__container">
@@ -77,15 +95,44 @@ function Auth() {
                         </div>
                         <div className="main__frame">
                             <div className="heading__frame">
-                                <h1>Аккаунт</h1>
-                                <p className="text">Информация об аккаунте пользователя</p>
+                                <h1>Личный кабинет</h1>
+                                <p className="text">Информация о игроке</p>
                             </div>
                             <div className="collection__frame">
-
+                                <div className="block__frame">
+                                    <div className="content">
+                                        <div className="main__of__content">
+                                            <div className="info__frame">
+                                                <p className="text__info">Электронная почта</p>
+                                                <p className="heading__info">
+                                                    {user?.email}
+                                                </p>
+                                                <button className="register__button" onClick={logOut}>Выйти</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="block__frame">
+                                    <div className="content">
+                                        <div className="main__of__content">
+                                            <div className="info__frame">
+                                                <p className="text__info">Дата создания аккаунта</p>
+                                                <p className="heading__info">
+                                                    {loginDate.toLocaleString()}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="collection__frame">
+                                {sessionDate.map((game, index) =>
+                                    <AccountBlock key={index}
+                                                  name={game[0]}
+                                                  date={game[1]} />
+                                )}
                             </div>
                         </div>
-                        {user?.email}
-                        <button className="register__button" onClick={logOut}>Выйти</button>
                     </div>
                 ) : ( status===0 && (
                     <form>

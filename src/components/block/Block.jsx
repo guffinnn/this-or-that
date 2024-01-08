@@ -8,14 +8,14 @@ function Block({name}) {
 
     switch(name) {
         case 'monkeys':
-            imageUrl = Img["img1"];
+            imageUrl = Img["img17"];
             break;
         case 'ducks':
             imageUrl = `https://random-d.uk/api/1.jpg`;
     }
 
     return (
-        <div className="block__frame">
+        <div className={`block__frame block__frame__${((name === 'monkeys' || name === 'ducks') && 'ready') || (name === '' && 'moderate')}`}>
             <div className="content">
                 <div className={`status ${((name === 'monkeys' || name === 'ducks') && '') || (name === '' && 'moderate')}`}>
                     <p className='status__text'>
