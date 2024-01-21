@@ -1,5 +1,7 @@
 # "This or That Game"
 
+![2](https://github.com/guffinnn/this-or-that/assets/119128764/4318c663-6f0e-498f-825f-78aeb5ad945f)
+
 Это приложение разработано на React с использованием Firebase и осуществляет функциональность игры "This or That", в которой из пары карточек нужно делать выбор в пользу одной, тем самым повышая ее рейтинг в общем списке карточек.
 
 # Ознакомиться с веб-приложением
@@ -11,6 +13,8 @@ https://guffinnn.github.io/this-or-that/
 ```
 
 ## Установка
+
+![4](https://github.com/guffinnn/this-or-that/assets/119128764/b3ea720b-dfad-42ba-ac19-d92cf6817b4f)
 
 1. Склонируйте репозиторий на локальную машину:
 
@@ -31,6 +35,8 @@ npm install
 ```
 
 ## Использование
+
+![6](https://github.com/guffinnn/this-or-that/assets/119128764/f011b753-f231-46e0-a19c-23bfafdc1b19)
 
 Запустите приложение с помощью команды:
 
